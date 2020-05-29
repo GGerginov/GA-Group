@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController extends BaseController {
+public class UserController extends BaseController {
 
-    @GetMapping("/")
-    public ModelAndView getIndex(){
+    @GetMapping("/login")
+    public ModelAndView login(){
 
-        return super.view("index");
+        return super.view("login");
     }
+
 }

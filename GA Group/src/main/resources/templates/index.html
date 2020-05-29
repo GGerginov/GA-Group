@@ -1,13 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en" xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <th:block th:include="~{_shared/head}"/>
 </head>
+
 <body>
-
-
-<h1>dlaklajdakldkajl</h1>
-
+    <!-- Start: Navigation with Button -->
+    <th:block th:include="~{_shared/navbar}"/>
+    <!-- End: Navigation with Button -->
+    <div class="jumbotron" style="width: 100%;"></div>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="search-form row">
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
+                            <form><span>Manufacturer</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
+                            <form><span>Model</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
+                            <form><span>Status</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
+                            <form><span>Year</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
+                            <form><span>Location</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
+                            <form><span>Millage Range</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                        </div><button class="btn border rounded-0 shadow" id="searchButton" type="button">Search</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col col-xs-12 col-sm-6" id="col" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
+                <div class="card" id="card1">
+                    <div class="card-body"></div>
+                </div>
+                <div id="details" class="details">
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year">2020</h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="/carDetails.html">Details &gt;&gt;</a></div>
+            </div>
+            <div class="col col-xs-12 col-sm-6" id="col-1" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
+                <div class="card" id="card-1" style="background-image: url(&quot;/assets/img/porsche%20911.jpg?h=0a09fe093a66feebdfc6334214e5465a&quot;);height: 400px;">
+                    <div class="card-body"></div>
+                </div>
+                <div id="details-1" class="details">
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-1">2020</h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-1">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="#">Details &gt;&gt;</a></div>
+            </div>
+            <div class="col col-xs-12 col-sm-6" id="col-2" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
+                <div class="card" id="card-2">
+                    <div class="card-body"></div>
+                </div>
+                <div id="details-2" class="details">
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-2">2020</h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-2">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="#">Details &gt;&gt;</a></div>
+            </div>
+            <div class="col col-xs-12 col-sm-6" id="col-3" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
+                <div class="card" id="card-3" style="background-image: url(&quot;/assets/img/bmw%20328.jpg?h=4f390dc1c5a2e7ae361ec00df8681894&quot;);">
+                    <div class="card-body"></div>
+                </div>
+                <div id="details-3" class="details">
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-3">2020</h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-3">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="/carDetails.html">Details &gt;&gt;</a></div>
+            </div>
+        </div>
+    </div>
+    <!-- Start: Footer Dark -->
+    <th:block th:include="~{_shared/footer}"/>
+    <!-- End: Footer Dark -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/script.min.js?h=7449453b13d525ac82e6f4693bb03581"></script>
 </body>
+
 </html>

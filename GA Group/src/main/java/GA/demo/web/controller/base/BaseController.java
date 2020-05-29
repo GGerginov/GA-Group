@@ -1,4 +1,4 @@
-package GA.demo.web.controller;
+package GA.demo.web.controller.base;
 
 import org.springframework.web.servlet.ModelAndView;
 

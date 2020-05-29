@@ -1,14 +1,31 @@
 <!DOCTYPE html>
-<html  lang="en" xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:th="http://www.thymeleaf.org">
+<html>
 
 <head>
-    <th:block th:include="~{_shared/head}"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Search a car</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css?h=15b99ddeda580a2dad8a44d3c0401b75">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 
 <body>
     <!-- Start: Navigation with Button -->
-    <th:block th:include="~{_shared/navbar}"/>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button" style="width: 100%;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;padding-top: 0px;margin-right: 0px;">
+        <div class="container"><a class="navbar-brand" href="#">GA Group</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: rgba(0,0,0,0.4);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon border-dark" style="background-image: url(&quot;/assets/img/clipart365828.png?h=a8445024ce4e233afa187c544b04530f&quot;);"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Find your car</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" id="group" href="#">Rent a car</a></li>
+                </ul><span class="navbar-text actions"> <a class="btn border rounded-0 action-button" role="button" href="#">Sign Up</a></span></div>
+        </div>
+    </nav>
     <!-- End: Navigation with Button -->
     <div class="jumbotron" style="width: 100%;"></div>
     <section>
@@ -40,7 +57,7 @@
     </section>
     <div class="container">
         <div class="row">
-            <div class="col col-xs-12 col-sm-6" id="col" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
+            <div class="col-12 col-xs-12 col-sm-6" id="col" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
                 <div class="card" id="card1">
                     <div class="card-body"></div>
                 </div>
@@ -49,7 +66,7 @@
                     <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year">2020</h4>
                     <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="/carDetails.html">Details &gt;&gt;</a></div>
             </div>
-            <div class="col col-xs-12 col-sm-6" id="col-1" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
+            <div class="col-12 offset-0 col-xs-12 col-sm-6" id="col-1" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
                 <div class="card" id="card-1" style="background-image: url(&quot;/assets/img/porsche%20911.jpg?h=0a09fe093a66feebdfc6334214e5465a&quot;);height: 400px;">
                     <div class="card-body"></div>
                 </div>
@@ -58,7 +75,7 @@
                     <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-1">2020</h4>
                     <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-1">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="#">Details &gt;&gt;</a></div>
             </div>
-            <div class="col col-xs-12 col-sm-6" id="col-2" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
+            <div class="col-12 col-xs-12 col-sm-6" id="col-2" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
                 <div class="card" id="card-2">
                     <div class="card-body"></div>
                 </div>
@@ -79,11 +96,50 @@
         </div>
     </div>
     <!-- Start: Footer Dark -->
-    <th:block th:include="~{_shared/footer}"/>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <!-- Start: Services -->
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <!-- End: Services -->
+                    <!-- Start: About -->
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <!-- End: About -->
+                    <!-- Start: Footer Text -->
+                    <div class="col-md-6 item text">
+                        <h3>Company Name</h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                    </div>
+                    <!-- End: Footer Text -->
+                    <!-- Start: Social Icons -->
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                    <!-- End: Social Icons -->
+                </div>
+                <!-- Start: Copyright -->
+                <p class="copyright">Company Name © 2017</p>
+                <!-- End: Copyright -->
+            </div>
+        </footer>
+    </div>
     <!-- End: Footer Dark -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/script.min.js?h=7449453b13d525ac82e6f4693bb03581"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/script.min.js?h=4b850b85797961b41c4dd8db0ee56a9a"></script>
 </body>
 
 </html>
