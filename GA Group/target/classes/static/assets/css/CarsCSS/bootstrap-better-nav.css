@@ -1,0 +1,968 @@
+body.overflow-hidden {
+  overflow: hidden;
+}
+
+#side-menu {
+  display: none;
+  position: fixed;
+  width: 300px;
+  top: 0;
+  right: -300px;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1035;
+  background: #fff;
+  padding: 20px 30px;
+  color: #333;
+  transition: 0.4s;
+}
+
+body.side-menu-visible #side-menu {
+  transform: translateX(-300px);
+}
+
+#side-menu .contents {
+  margin-top: 15px;
+}
+
+#side-menu .nav-link {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 0;
+}
+
+#side-menu .nav-link:hover {
+  opacity: 0.8;
+}
+
+#side-menu .close {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.side-menu-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 100;
+  display: none;
+}
+
+#side-menu.side-menu-left {
+  right: auto;
+  left: -300px;
+}
+
+body.side-menu-visible #side-menu.side-menu-left {
+  transform: translateX(300px);
+}
+
+.form-control.manufacturer-dropdown {
+}
+
+@media (min-width: 1200px) {
+  #searchButton {
+    width: 123px;
+    height: 51px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .form-control.manufacturer-dropdown {
+    width: 150px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .form-control.manufacturer-dropdown {
+    width: 115px;
+  }
+}
+
+div + button {
+}
+
+@media (max-width: 500px) {
+  .form-control.manufacturer-dropdown {
+    width: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  #dropdownDiv {
+  }
+}
+
+@media (max-width: 500px) {
+  .col-xs-6.col-sm-3.col-md-3.col-lg-2.dropdownDiv {
+    width: 159px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  #searchButton {
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 116px;
+  }
+}
+
+@media (max-width: 500px) {
+  .jumbotron {
+    height: 148px;
+    padding: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    background-position: center;
+    background-size: contain;
+  }
+}
+
+#col-2 {
+}
+
+#userProfile {
+  padding-top: 40px;
+}
+
+.col.col-12 {
+  left: 0;
+  right: 0;
+  display: block;
+  text-align: center;
+}
+
+.h1, h1 {
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 25px;
+  border-bottom: 1px solid black;
+}
+
+dl, ol, ul {
+  list-style-type: none;
+  display: block;
+}
+
+#category {
+  justify-items: start;
+}
+
+#value {
+  align-items: end;
+}
+
+.tex-right {
+  text-align: right;
+  margin-left: 170px;
+}
+
+span + strong {
+  margin-left: 100px;
+}
+
+.descriptionRow {
+  width: 249px;
+  padding-left: 0px;
+  margin-left: -40px;
+  padding-top: 8px;
+}
+
+.price-tag {
+  font-size: 30px;
+  text-align: end;
+  width: 885px;
+}
+
+.rowOfDescription {
+  font-size: 20px;
+  border-bottom: 2px solid rgba(220,220,220,0.7);
+}
+
+.title {
+  padding-left: 25px;
+  font-size: 32px;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.title {
+  color: black;
+}
+
+a {
+  color: black;
+}
+
+.col.price {
+  background-color: #ef2323;
+  height: 53px;
+  margin-right: 0;
+  vertical-align: middle;
+  width: 154px;
+  margin-top: 0px;
+}
+
+.priceParagraph {
+  color: #fff;
+  text-align: center;
+}
+
+.priceParagraph {
+}
+
+.priceDIv {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.title-row {
+  padding-top: 36px;
+}
+
+.icon.ion-email.fa-mail {
+  font-size: 37px;
+}
+
+/* Style the Image Used to Trigger the Modal */
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+/* The Modal (background) */
+
+/* Modal Content (Image) */
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.sellerNote {
+  border-top: 2px solid rgb(210,210,210);
+}
+
+.sellerCol {
+  padding-top: 50px;
+  padding-right: 0px;
+  margin-left: 2px;
+  line-height: 22px;
+}
+
+#more {
+  display: none;
+}
+
+#show {
+  background-color: #000;
+  color: #fff;
+}
+
+.sellerNote {
+  margin-top: 10px;
+}
+
+.fa.fa-road {
+  font-size: 25px;
+  color: rgb(255,0,0);
+}
+
+.fa.fa-star {
+}
+
+p {
+}
+
+.details-row {
+  font-size: 25px;
+  margin-right: 0;
+  padding-right: 0px;
+  padding-left: 0px;
+  z-index: -1;
+}
+
+.detailsIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.details {
+}
+
+.fas.fa-gas-pump {
+  color: rgb(255,0,0);
+}
+
+.fab.fa-galactic-republic {
+}
+
+.fa.fa-check {
+  font-size: 25px;
+  color: rgba(255,0,0,0.7);
+}
+
+.extrasRow {
+  vertical-align: middle;
+  justify-content: left;
+  padding-right: 2px;
+  margin-left: 0px;
+  font-size: 16px;
+}
+
+.extrasText {
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.col.col-md-4 {
+  align-content: center;
+}
+
+.card {
+}
+
+.descriptionRow {
+  margin-right: 0px;
+  margin-left: 0px;
+  border-bottom: 2px solid rgb(210,210,210);
+}
+
+.details-row.key {
+  font-size: 20px;
+}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+}
+
+#form {
+  vertical-align: middle;
+  z-index: 999;
+}
+
+#loginform {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.form {
+  width: 500px;
+  left: 0;
+  right: 0;
+  display: inline-block;
+  text-align: center;
+  border: 2px solid rgb(210,210,210);
+}
+
+.loginForm-container {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.form-control-plaintext {
+  border: 2px solid rgb(210,210,210);
+  width: 400px;
+  align-self: center;
+}
+
+.form-control-plaintext.input {
+}
+
+.card-body {
+}
+
+#profileCard {
+  width: 800px;
+  height: 500px;
+}
+
+.card {
+  border: none;
+}
+
+#details {
+}
+
+.modal-dialog {
+}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+  align-content: center;
+}
+
+.carousel-item.active.slide {
+  width: 650px;
+  height: 500px;
+  margin-right: 0px;
+}
+
+.w-100.d-block.img-slide {
+  height: 530px;
+  width: 650px;
+}
+
+.carousel-inner {
+  height: 449px;
+}
+
+.w-100.d-block.img-slide {
+}
+
+.carousel-item.active.slide {
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+  width: 600px;
+  height: 400px;
+}
+
+.jumbotron {
+  width: 100%;
+}
+
+body {
+  width: 100%;
+}
+
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+  color: rgba(255,255,255,1);
+}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+  align-content: center;
+}
+
+.col.col-md-4.sellerDesc {
+  align-content: center;
+  text-align: left;
+}
+
+.profileImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 500;
+}
+
+.phone {
+  margin-top: 120px;
+  font-size: 25px;
+  width: 200px;
+}
+
+.mail {
+  font-size: 25px;
+  text-align: left;
+  width: 250px;
+}
+
+.price {
+  font-size: 30px;
+  color: rgb(255,255,255);
+  background-color: rgba(255,0,0,0.7);
+  text-align: right;
+  width: 151px;
+  height: 45;
+}
+
+.container.desciption {
+  padding-top: 70px;
+}
+
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+  width: 100px;
+}
+
+.form-control-plaintext.input.content {
+  height: 68px;
+}
+
+div {
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+}
+
+.mail-form {
+  justify-items: center;
+}
+
+.sendButton {
+  justify-content: center;
+  align-items: center;
+}
+
+.mapouter {
+  padding-top: 20px;
+}
+
+.extras {
+  list-style-type: none;
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  columns: 3;
+  list-style-position: inside;
+}
+
+/* Style the Image Used to Trigger the Modal */
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+/* The Modal (background) */
+
+.modal {
+}
+
+/* Modal Content (Image) */
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+#myImg {
+  object-fit: cover;
+}
+
+div {
+}
+
+@media (max-width: 500px) {
+  #carousel-1 {
+    width: 100%;
+    height: 90%;
+  }
+}
+
+#myImg {
+}
+
+@media (max-width: 430px) {
+  .container.desciption {
+    padding-top: 500px;
+  }
+}
+
+.login, .image {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('/assets/img/pagani-huayra-white-street-rain.jpg?h=71a9579ad713b808566d26f6093ffe00');
+  background-size: cover;
+  background-position: center center;
+}
+
+#inputEmail {
+}
+
+@media (max-width: 500px) {
+  form {
+    width: 100%;
+  }
+}
+
+#submit {
+  width: 90%;
+}
+
+.col {
+  padding-top: 20px;
+}
+
+.navbar.navbar-light.navbar-expand-lg.navigation-clean-button {
+  width: 100%;
+}
+
+img {
+  /*display: block;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+  /*width: 25%;*/
+}
+
+#myImg {
+  width: 100%;
+  height: 100%;
+}
+
+.myModal {
+  display: block;
+}
+
+.col {
+}
+
+.col {
+}
+
+.btn.btn-primary.dropdown-toggle {
+  width: 150px;
+}
+
+.form-control {
+  width: 150px;
+}
+
+.form-control-file, .form-control-range {
+  width: 150px;
+}
+
+.saleDescription {
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(210,210,210,0.9);
+}
+
+.btn dropdown-toggle {
+  background-color: #fff;
+  font-family: 'Montserrat';
+  color: #000;
+  border: 1px solid rgb(210,210,210);
+  width: 150px;
+}
+
+.file-uploader {
+}
+
+.row {
+}
+
+.row.car-card {
+  height: 120px;
+}
+
+.container.mycars {
+  padding-top: 40px;
+}
+
+.saleImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.col.carBlock.col-md-6.col-xs-12 {
+  border-top: 2px solid rgb(210,210,210);
+  border-bottom: 2px solid rgb(210,210,210);
+  border-left: 2px solid rgb(210,210,210);
+}
+
+.col.carBlock-reversed {
+  border-top: 2px solid rgb(210,210,210);
+  border-bottom: 2px solid rgb(210,210,210);
+  border-right: 2px solid rgb(210,210,210);
+  text-align: right;
+}
+
+.col.saleBlock {
+  border-top: 2px solid rgb(210,210,210);
+  border-bottom: 2px solid rgb(210,210,210);
+  border-right: 2px solid rgb(210,210,210);
+}
+
+.col.saleBlock-reversed {
+  border-top: 2px solid rgb(210,210,210);
+  border-bottom: 2px solid rgb(210,210,210);
+  border-left: 2px solid rgb(210,210,210);
+}
+
+.addedInfo {
+  text-align: right;
+}
+
+.btn:not(:disabled):not(.disabled) {
+}
+
+button + button {
+  margin-left: 20px;
+}
+
+container + container {
+  padding-top: 50px;
+}
+
+div + div {
+}
+
+.paddingCard {
+  padding-top: 250px;
+}
+
+.title {
+  padding-top: 20px;
+  text-align: center;
+  color: rgb(180,180,180);
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .col.carBlock.col-md-6.col-xs-12 {
+    width: 20%;
+    height: 20%;
+  }
+}
+
+.h1, h1 {
+  font-size: 12px;
+}
+
+@media (min-width: 300px) {
+  .field {
+    font-size: 16px;
+  }
+}
+
+/* Modal Content/Box */
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.closeButton {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+closeButton:hover, .closeButton:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  div + div {
+    padding-top: 20px;
+  }
+}
+
+.col-12.offset-0.col-md-6.col-sm-12.col-xs-12 {
+  padding-top: 100px;
+}
+
+.dashed_upload {
+}
+
+/*@media (max-width: 900px) {*/
+/*  .container, .container-lg, .container-md, .container-sm, .container-xl {*/
+/*    padding-top: 200px;*/
+/*  }*/
+/*}*/
+
+.col-xs-6.col-sm-3.col-md-3.col-lg-2.dropdownDiv {
+}
+
+form {
+  vertical-align: middle;
+}
+
+.footer-dark {
+  height: 100px;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: -webkit-transform .6s ease-in-out;
+  transition: transform .6s ease-in-out;
+  transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
+}
+
+#inputEmail {
+  width: 100%;
+}
+
+#inputPassword {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+}
+
+.form-group.mb-3 {
+  width: 100%;
+}
+
+.form-group.mb-3 {
+}
+
+#inputRepeatPassword {
+  width: 100%;
+}
+
+#inputMobilePhone {
+  width: 100%;
+}
+

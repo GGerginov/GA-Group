@@ -2,5 +2,5 @@ package GA.demo.domain.enums;
 
 public enum EngineType {
 
-    PETROL,DIESEL,ELECTRICITY
+    PETROL,DIESEL,ELECTRICITY,LPG,CNG
 }

@@ -2,30 +2,13 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Search a car</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.min.css?h=15b99ddeda580a2dad8a44d3c0401b75">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <th:block th:include="~{_shared/head}"/>
 </head>
 
 <body>
+    <div id="preloader"></div>
     <!-- Start: Navigation with Button -->
-    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button" style="width: 100%;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;padding-top: 0px;margin-right: 0px;">
-        <div class="container"><a class="navbar-brand" href="#">GA Group</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: rgba(0,0,0,0.4);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon border-dark" style="background-image: url(&quot;/assets/img/clipart365828.png?h=a8445024ce4e233afa187c544b04530f&quot;);"></span></button>
-            <div
-                class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Find your car</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" id="group" href="#">Rent a car</a></li>
-                </ul><span class="navbar-text actions"> <a class="btn border rounded-0 action-button" role="button" href="#">Sign Up</a></span></div>
-        </div>
-    </nav>
+    <th:block th:include="~{_shared/navbar}"/>
     <!-- End: Navigation with Button -->
     <div class="jumbotron" style="width: 100%;"></div>
     <section>
@@ -67,7 +50,7 @@
                     <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="/carDetails.html">Details &gt;&gt;</a></div>
             </div>
             <div class="col-12 offset-0 col-xs-12 col-sm-6" id="col-1" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
-                <div class="card" id="card-1" style="background-image: url(&quot;/assets/img/porsche%20911.jpg?h=0a09fe093a66feebdfc6334214e5465a&quot;);height: 400px;">
+                <div class="card" id="card-1" style="background-image: url(&quot;/assets/img/porche.jpg?h=0a09fe093a66feebdfc6334214e5465a&quot;);height: 400px;">
                     <div class="card-body"></div>
                 </div>
                 <div id="details-1" class="details">
@@ -137,9 +120,77 @@
         </footer>
     </div>
     <!-- End: Footer Dark -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/script.min.js?h=4b850b85797961b41c4dd8db0ee56a9a"></script>
+    <!-- Start: Swipe Slider 7 --><!-- Paradise Slider -->
+	<div id="fw_al_001" class="carousel slide ps_slide_y ps_indicators_y swipe_y ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2500">
+
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#fw_al_001" data-slide-to="0" class="active"></li>
+			<li data-target="#fw_al_001" data-slide-to="1"></li>
+			<li data-target="#fw_al_001" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper For Slides -->
+		<div class="carousel-inner" role="listbox">
+
+			<!-- First Slide -->
+			<div class="carousel-item active">
+
+				<!-- Slide Background -->
+				<img src="/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3" alt="fw_al_001_01">
+
+				<!-- Slide Text Layer -->
+				<div class="fw_al_001_slide">
+					<h3 data-animation="animated fadeInUp">Mclaren</h3>
+					<h1 data-animation="animated fadeInUp">P1 S</h1>
+					
+					<a href="#" data-animation="animated fadeInUp">Details</a>
+				</div>
+			</div>
+			<!-- End of Slide -->
+
+			<!-- Second Slide -->
+			<div class="carousel-item">
+
+				<!-- Slide Background -->
+				<img src="/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3" alt="fw_al_001_01">
+
+				<!-- Slide Text Layer -->
+				<div class="fw_al_001_slide">
+					<h3 data-animation="animated fadeInUp">Mclaren</h3>
+					<h1 data-animation="animated fadeInUp">P1 S</h1>
+					
+					<a href="#" data-animation="animated fadeInUp">Details</a>
+				</div>
+			</div>
+			<!-- End of Slide -->
+
+			<!-- Third Slide -->
+			<div class="carousel-item">
+
+				<!-- Slide Background -->
+				<img src="/assets/img/porshe.jpg?h=ccc012ac3773ec1a2c19f77654e4243e" alt="fw_al_001_03">
+
+				<!-- Slide Text Layer -->
+				<div class="fw_al_001_slide">
+					<h3 data-animation="animated fadeInUp">wx erat</h3>
+					<h1 data-animation="animated fadeInUp">Aliquamaeuhw</h1>
+					<p data-animation="animated fadeInUp">lorem 2018, ipsum out of sapien, consequa</p>
+					<a href="#" data-animation="animated fadeInUp">Details</a>
+				</div>
+			</div>
+			<!-- End of Slide -->
+
+		</div><!-- End of Wrapper For Slides -->
+
+	</div> <!-- End Paradise Slider -->
+
+	
+
+
+ <!-- End -->
+    <!-- End: Swipe Slider 7 -->
+    <th:block th:include="~{_shared/script}"/>
 </body>
 
 </html>

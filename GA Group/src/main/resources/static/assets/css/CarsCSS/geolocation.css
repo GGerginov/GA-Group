@@ -1,0 +1,48 @@
+div {
+  display: block;
+  vertical-align: middle;
+}
+
+a {
+  color: black;
+}
+
+a {
+  color: #6d8de1;
+}
+
+#footer a:active, a:hover {
+  color: #fcf8f8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+.uk-link, a {
+  color: #1e87f0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.uk-link:hover, a:hover {
+  color: #0f6ecd;
+  text-decoration: underline;
+}
+
+a, area, button, input, label, select, summary, textarea {
+  touch-action: manipulation;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+

@@ -11,6 +11,6 @@ public class HomeController extends BaseController {
     @GetMapping("/")
     public ModelAndView getIndex(){
 
-        return super.view("index");
+        return super.view("search");
     }
 }

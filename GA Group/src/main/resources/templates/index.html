@@ -1,89 +1,107 @@
 <!DOCTYPE html>
-<html  lang="en" xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <th:block th:include="~{_shared/head}"/>
+    <th:block th:include = "~{_shared/head}"/>
 </head>
 
 <body>
     <!-- Start: Navigation with Button -->
-    <th:block th:include="~{_shared/navbar}"/>
+
+    <th:block th:include = "~{_shared/head}"/>
+
     <!-- End: Navigation with Button -->
-    <div class="jumbotron" style="width: 100%;"></div>
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="search-form row">
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Manufacturer</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Model</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Status</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Year</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Location</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Millage Range</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
-                        </div><button class="btn border rounded-0 shadow" id="searchButton" type="button">Search</button></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Start: Swipe Slider 7 --><!-- Paradise Slider -->
+	<div id="fw_al_001" class="carousel slide ps_slide_y ps_indicators_y swipe_y ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2500">
+
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#fw_al_001" data-slide-to="0" class="active"></li>
+			<li data-target="#fw_al_001" data-slide-to="1"></li>
+			<li data-target="#fw_al_001" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper For Slides -->
+		<div class="carousel-inner" role="listbox">
+
+			<!-- First Slide -->
+			<div class="carousel-item active">
+
+				<!-- Slide Background -->
+				<img src="/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3" alt="fw_al_001_01">
+
+				<!-- Slide Text Layer -->
+				<div class="fw_al_001_slide">
+					<h3 data-animation="animated fadeInUp">Mclaren</h3>
+					<h1 data-animation="animated fadeInUp">P1 S</h1>
+					
+					<a href="#" data-animation="animated fadeInUp">Details</a>
+				</div>
+			</div>
+			<!-- End of Slide -->
+
+			<!-- Second Slide -->
+			<div class="carousel-item">
+
+				<!-- Slide Background -->
+				<img src="/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3" alt="fw_al_001_01">
+
+				<!-- Slide Text Layer -->
+				<div class="fw_al_001_slide">
+					<h3 data-animation="animated fadeInUp">Mclaren</h3>
+					<h1 data-animation="animated fadeInUp">P1 S</h1>
+					
+					<a href="#" data-animation="animated fadeInUp">Details</a>
+				</div>
+			</div>
+			<!-- End of Slide -->
+
+			<!-- Third Slide -->
+			<div class="carousel-item">
+
+				<!-- Slide Background -->
+				<img src="/assets/img/porshe.jpg?h=ccc012ac3773ec1a2c19f77654e4243e" alt="fw_al_001_03">
+
+				<!-- Slide Text Layer -->
+				<div class="fw_al_001_slide">
+					<h3 data-animation="animated fadeInUp">wx erat</h3>
+					<h1 data-animation="animated fadeInUp">Aliquamaeuhw</h1>
+					<p data-animation="animated fadeInUp">lorem 2018, ipsum out of sapien, consequa</p>
+					<a href="#" data-animation="animated fadeInUp">Details</a>
+				</div>
+			</div>
+			<!-- End of Slide -->
+
+		</div><!-- End of Wrapper For Slides -->
+
+	</div> <!-- End Paradise Slider -->
+
+	
+
+
+ <!-- End -->
+    <!-- End: Swipe Slider 7 -->
     <div class="container">
         <div class="row">
-            <div class="col col-xs-12 col-sm-6" id="col" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
-                <div class="card" id="card1">
-                    <div class="card-body"></div>
-                </div>
-                <div id="details" class="details">
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year">2020</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="/carDetails.html">Details &gt;&gt;</a></div>
-            </div>
-            <div class="col col-xs-12 col-sm-6" id="col-1" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
-                <div class="card" id="card-1" style="background-image: url(&quot;/assets/img/porsche%20911.jpg?h=0a09fe093a66feebdfc6334214e5465a&quot;);height: 400px;">
-                    <div class="card-body"></div>
-                </div>
-                <div id="details-1" class="details">
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-1">2020</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-1">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="#">Details &gt;&gt;</a></div>
-            </div>
-            <div class="col col-xs-12 col-sm-6" id="col-2" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
-                <div class="card" id="card-2">
-                    <div class="card-body"></div>
-                </div>
-                <div id="details-2" class="details">
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-2">2020</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-2">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="#">Details &gt;&gt;</a></div>
-            </div>
-            <div class="col col-xs-12 col-sm-6" id="col-3" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
-                <div class="card" id="card-3" style="background-image: url(&quot;/assets/img/bmw%20328.jpg?h=4f390dc1c5a2e7ae361ec00df8681894&quot;);">
-                    <div class="card-body"></div>
-                </div>
-                <div id="details-3" class="details">
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-3">2020</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-3">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="/carDetails.html">Details &gt;&gt;</a></div>
+            <div class="col offset-lg-2 col-md-4"><label style="font-family: Montserrat, sans-serif;font-size: 19px;">Manudacturer</label>
+                <div class="dropdown"><button class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="background-color: rgb(255,255,255);border: 2px solid rgb(210,210,210);width: 180px;font-family: Montserrat, sans-serif;font-size: 18px;">Dropdown </button>
+                    <div
+                        class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
             </div>
         </div>
+        <div class="col offset-lg-0"><label>Model</label>
+            <div class="dropdown"><button class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="background-color: rgb(255,255,255);border: 2px solid rgb(210,210,210);width: 160px;font-family: Montserrat, sans-serif;font-size: 18px;">Dropdown </button>
+                <div
+                    class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+        </div>
+    </div>
+    </div>
     </div>
     <!-- Start: Footer Dark -->
     <th:block th:include="~{_shared/footer}"/>
     <!-- End: Footer Dark -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/script.min.js?h=7449453b13d525ac82e6f4693bb03581"></script>
+    <th:block th:include="~{_shared/script}"/>
 </body>
 
 </html>

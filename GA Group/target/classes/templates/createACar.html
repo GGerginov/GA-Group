@@ -1,211 +1,601 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Search a car</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.min.css?h=15b99ddeda580a2dad8a44d3c0401b75">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <th:block th:include="~{_shared/head}"/>
 </head>
 
 <body style="font-family: Montserrat, sans-serif;">
-    <!-- Start: Navigation with Button -->
-    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
-        <div class="container"><a class="navbar-brand" href="#">GA Group</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: rgba(0,0,0,0.1);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon border-dark" style="background-image: url(&quot;/assets/img/clipart365828.png?h=a8445024ce4e233afa187c544b04530f&quot;);"></span></button>
-            <div
-                class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Find your car</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">My cars</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Post new car</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" id="group" href="#">Rent a car</a></li>
-                </ul><span class="navbar-text actions"> <a class="btn border rounded-0 action-button" role="button" href="#">Sign Up</a></span></div>
-        </div>
-    </nav>
-    <!-- End: Navigation with Button -->
-    <div class="jumbotron"></div>
-    <div class="container">
+<!-- Start: Navigation with Button -->
+<th:block th:include="~{_shared/navbar}"/>
+<!-- End: Navigation with Button -->
+<div class="jumbotron" id="upload-form"></div>
+    <form class="container formCreate" action="/cars/create" method="POST" enctype="multipart/form-data">
+        <div class="container">
         <div class="row">
-            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Manufacturer</label>
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </div>
-                </form>
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <div>
+                <label>Manufacturer</label>
+                <br>
+                <select name="manufacturer" id="dropdownManufacturer" onchange="getManufacturer(this.value)" class="dropdownMenu">
+                    <option value="">All
+                    </option>
+                    <option value="AC">AC
+                    </option>
+                    <option value="Abarth">Abarth
+                    </option>
+                    <option value="Acura">Acura
+                    </option>
+                    <option value="Aixam">Aixam
+                    </option>
+                    <option value="Alfa Romeo">Alfa Romeo
+                    </option>
+                    <option value="Alpina">Alpina
+                    </option>
+                    <option value="Aro">Aro
+                    </option>
+                    <option value="Asia">Asia
+                    </option>
+                    <option value="Aston martin">Aston martin
+                    </option>
+                    <option value="Audi">Audi
+                    </option>
+                    <option value="Austin">Austin
+                    </option>
+                    <option value="BMW">BMW
+                    </option>
+                    <option value="Bentley">Bentley
+                    </option>
+                    <option value="Berliner">Berliner
+                    </option>
+                    <option value="Bertone">Bertone
+                    </option>
+                    <option value="Borgward">Borgward
+                    </option>
+                    <option value="Brilliance">Brilliance
+                    </option>
+                    <option value="Bugatti">Bugatti
+                    </option>
+                    <option value="Buick">Buick
+                    </option>
+                    <option value="Cadillac">Cadillac
+                    </option>
+                    <option value="Chevrolet">Chevrolet
+                    </option>
+                    <option value="Chrysler">Chrysler
+                    </option>
+                    <option value="Citroen">Citroen
+                    </option>
+                    <option value="Corvette">Corvette
+                    </option>
+                    <option value="Cupra">Cupra
+                    </option>
+                    <option value="DS">DS
+                    </option>
+                    <option value="Dacia">Dacia
+                    </option>
+                    <option value="Daewoo">Daewoo
+                    </option>
+                    <option value="Daihatsu">Daihatsu
+                    </option>
+                    <option value="Daimler">Daimler
+                    </option>
+                    <option value="Datsun">Datsun
+                    </option>
+                    <option value="Dkw">Dkw
+                    </option>
+                    <option value="Dodge">Dodge
+                    </option>
+                    <option value="Dr">Dr
+                    </option>
+                    <option value="Eagle">Eagle
+                    </option>
+                    <option value="FSO">FSO
+                    </option>
+                    <option value="Ferrari">Ferrari
+                    </option>
+                    <option value="Fiat">Fiat
+                    </option>
+                    <option value="Ford">Ford
+                    </option>
+                    <option value="GOUPIL">GOUPIL
+                    </option>
+                    <option value="Gaz">Gaz
+                    </option>
+                    <option value="Geo">Geo
+                    </option>
+                    <option value="Gmc">Gmc
+                    </option>
+                    <option value="Great Wall">Great Wall
+                    </option>
+                    <option value="Haval">Haval
+                    </option>
+                    <option value="Heinkel">Heinkel
+                    </option>
+                    <option value="Hillman">Hillman
+                    </option>
+                    <option value="Honda">Honda
+                    </option>
+                    <option value="Hummer">Hummer
+                    </option>
+                    <option value="Hyundai">Hyundai
+                    </option>
+                    <option value="Ifa">Ifa
+                    </option>
+                    <option value="Infiniti">Infiniti
+                    </option>
+                    <option value="Innocenti">Innocenti
+                    </option>
+                    <option value="Isuzu">Isuzu
+                    </option>
+                    <option value="Iveco">Iveco
+                    </option>
+                    <option value="JAS">JAS
+                    </option>
+                    <option value="Jaguar">Jaguar
+                    </option>
+                    <option value="Jeep">Jeep
+                    </option>
+                    <option value="Jpx">Jpx
+                    </option>
+                    <option value="Kia">Kia
+                    </option>
+                    <option value="Lada">Lada
+                    </option>
+                    <option value="Laforza">Laforza
+                    </option>
+                    <option value="Lamborghini">Lamborghini
+                    </option>
+                    <option value="Lancia">Lancia
+                    </option>
+                    <option value="Land Rover">Land Rover
+                    </option>
+                    <option value="Landwind">Landwind
+                    </option>
+                    <option value="Lexus">Lexus
+                    </option>
+                    <option value="Lifan">Lifan
+                    </option>
+                    <option value="Lincoln">Lincoln
+                    </option>
+                    <option value="Lotus">Lotus
+                    </option>
+                    <option value="MG">MG
+                    </option>
+                    <option value="Mahindra">Mahindra
+                    </option>
+                    <option value="Maserati">Maserati
+                    </option>
+                    <option value="Matra">Matra
+                    </option>
+                    <option value="Maybach">Maybach
+                    </option>
+                    <option value="Mazda">Mazda
+                    </option>
+                    <option value="McLaren">McLaren
+                    </option>
+                    <option value="Mercedes-Benz">Mercedes-Benz
+                    </option>
+                    <option value="Mercury">Mercury
+                    </option>
+                    <option value="Mg">Mg
+                    </option>
+                    <option value="Microcar">Microcar
+                    </option>
+                    <option value="Mini">Mini
+                    </option>
+                    <option value="Mitsubishi">Mitsubishi
+                    </option>
+                    <option value="Morgan">Morgan
+                    </option>
+                    <option value="Moskvich">Moskvich
+                    </option>
+                    <option value="Nissan">Nissan
+                    </option>
+                    <option value="Oldsmobile">Oldsmobile
+                    </option>
+                    <option value="Opel">Opel
+                    </option>
+                    <option value="Perodua">Perodua
+                    </option>
+                    <option value="Peugeot">Peugeot
+                    </option>
+                    <option value="Pgo">Pgo
+                    </option>
+                    <option value="Plymouth">Plymouth
+                    </option>
+                    <option value="Polonez">Polonez
+                    </option>
+                    <option value="Pontiac">Pontiac
+                    </option>
+                    <option value="Porsche">Porsche
+                    </option>
+                    <option value="Proton">Proton
+                    </option>
+                    <option value="Renault">Renault
+                    </option>
+                    <option value="Rolls-Royce">Rolls-Royce
+                    </option>
+                    <option value="Rover">Rover
+                    </option>
+                    <option value="SECMA">SECMA
+                    </option>
+                    <option value="SH auto">SH auto
+                    </option>
+                    <option value="Saab">Saab
+                    </option>
+                    <option value="Samand">Samand
+                    </option>
+                    <option value="Santana">Santana
+                    </option>
+                    <option value="Saturn">Saturn
+                    </option>
+                    <option value="Scion">Scion
+                    </option>
+                    <option value="Seat">Seat
+                    </option>
+                    <option value="Shatenet">Shatenet
+                    </option>
+                    <option value="Shuanghuan">Shuanghuan
+                    </option>
+                    <option value="Simca">Simca
+                    </option>
+                    <option value="Skoda">Skoda
+                    </option>
+                    <option value="Smart">Smart
+                    </option>
+                    <option value="Ssang yong">Ssang yong
+                    </option>
+                    <option value="SsangYong">SsangYong
+                    </option>
+                    <option value="Subaru">Subaru
+                    </option>
+                    <option value="Suzuki">Suzuki
+                    </option>
+                    <option value="Talbot">Talbot
+                    </option>
+                    <option value="Tata">Tata
+                    </option>
+                    <option value="Tavria">Tavria
+                    </option>
+                    <option value="Tazzari">Tazzari
+                    </option>
+                    <option value="Tempo">Tempo
+                    </option>
+                    <option value="Terberg">Terberg
+                    </option>
+                    <option value="Tesla">Tesla
+                    </option>
+                    <option value="Tofas">Tofas
+                    </option>
+                    <option value="Toyota">Toyota
+                    </option>
+                    <option value="Trabant">Trabant
+                    </option>
+                    <option value="Triumph">Triumph
+                    </option>
+                    <option value="Uaz">Uaz
+                    </option>
+                    <option value="VROMOS">VROMOS
+                    </option>
+                    <option value="VW">VW
+                    </option>
+                    <option value="Volga">Volga
+                    </option>
+                    <option value="Volvo">Volvo
+                    </option>
+                    <option value="Warszawa">Warszawa
+                    </option>
+                    <option value="Wartburg">Wartburg
+                    </option>
+                    <option value="Wiesmann">Wiesmann
+                    </option>
+                    <option value="Xinkai">Xinkai
+                    </option>
+                    <option value="Xinshun">Xinshun
+                    </option>
+                    <option value="Zastava">Zastava
+                    </option>
+                    <option value="Zaz">Zaz
+                    </option>
+                    <option value="Други">Други
+                    </option>
+                    <option value="Победа">Победа
+                    </option>
+                    <option value="София">София
+                    </option>
+                    <option value="Чайка">Чайка
+
+                    </option>
+                </select>
             </div>
-            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Model</label>
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </div>
-                </form>
+
+        </div>
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <div>
+                <label>Model</label>
+                <br>
+                <select name="model" id="dropdownModel" class="dropdownMenu">
+                    <option value="">All</option>
+                </select>
             </div>
-            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Horse power</label><input class="form-control" type="text"></form>
+        </div>
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <form><label>Horse power</label>
+                <input name="horsePower" class="form-control" >
+            </form>
+        </div>
+        <div class="col-6 offset-0 col-md-3 col-sm-12 col-xs-12">
+            <div>
+                <label>Euro Standard</label>
+                <br>
+                <select name="euroStandard" class="dropdownMenu">
+                    <option value="">All
+                    </option>
+                    <option value="Euro I">Euro I</option>
+                    <option value="Euro II">Euro II</option>
+                    <option value="Euro III">Euro III</option>
+                    <option value="Euro IV">Euro IV</option>
+                    <option value="Euro V">Euro V</option>
+                </select>
             </div>
-            <div class="col-6 offset-0 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Euro Standard</label>
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </div>
-                </form>
+        </div>
+
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <div>
+                <label>Engine Type</label>
+                <br>
+                <select name="engineType" class="dropdownMenu">
+                    <option value="">All
+                    </option>
+                    <option value="PETROL">Petrol</option>
+                    <option value="DIESEL">Diesel</option>
+                    <option value="ELECTRICITY">Electricity</option>
+                    <option value="LPG">LPG</option>
+                    <option value="CNG">CNG</option>
+                </select>
             </div>
-            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Euro Standard</label>
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </div>
-                </form>
+        </div>
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <div>
+                <label>Transmission</label>
+                <br>
+                <select name="transmission" class="dropdownMenu">
+                    <option value="">All
+                    </option>
+                    <option value="MANUAL">Manual</option>
+                    <option value="AUTOMATIC">Automatic</option>
+                </select>
             </div>
-            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Engine type</label>
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </div>
-                </form>
+        </div>
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <div><label>Price</label><input name="price" class="form-control" type="text"></div>
+        </div>
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <div>
+                <label>Year</label>
+                <br>
+                <select name="year" class="dropdownMenu">
+                    <option value="">All
+                    </option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                    <option value="1999">1999</option>
+                    <option value="1998">1998</option>
+                    <option value="1997">1997</option>
+                    <option value="1996">1996</option>
+                    <option value="1995">1995</option>
+                    <option value="1994">1994</option>
+                    <option value="1993">1993</option>
+                    <option value="1992">1992</option>
+                    <option value="1991">1991</option>
+                    <option value="1990">1990</option>
+                </select>
             </div>
-            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Transmision</label>
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </div>
-                </form>
+        </div>
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <div><label>Millage</label><input name="millage" class="form-control" type="text"></div>
+        </div>
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <div>
+                <label>Region</label>
+                <br>
+                <select name="region" id="dropdownRegion" class="dropdownMenu" onchange="getTownByRegion(this.value)">
+                    <option value="">All
+                    </option>
+                    <option value="Благоевград">Благоевград
+                    </option>
+                    <option value="Бургас">Бургас
+                    </option>
+                    <option value="Варна">Варна
+                    </option>
+                    <option value="Велико Търново">Велико Търново
+                    </option>
+                    <option value="Видин">Видин
+                    </option>
+                    <option value="Враца">Враца
+                    </option>
+                    <option value="Габрово">Габрово
+                    </option>
+                    <option value="Добрич">Добрич
+                    </option>
+                    <option value="Дупница">Дупница
+                    </option>
+                    <option value="Кърджали">Кърджали
+                    </option>
+                    <option value="Кюстендил">Кюстендил
+                    </option>
+                    <option value="Ловеч">Ловеч
+                    </option>
+                    <option value="Монтана">Монтана
+                    </option>
+                    <option value="Пазарджик">Пазарджик
+                    </option>
+                    <option value="Перник">Перник
+                    </option>
+                    <option value="Плевен">Плевен
+                    </option>
+                    <option value="Пловдив">Пловдив
+                    </option>
+                    <option value="Разград">Разград
+                    </option>
+                    <option value="Русе">Русе
+                    </option>
+                    <option value="Силистра">Силистра
+                    </option>
+                    <option value="Сливен">Сливен
+                    </option>
+                    <option value="Смолян">Смолян
+                    </option>
+                    <option value="София">София
+                    </option>
+                    <option value="Стара Загора">Стара Загора
+                    </option>
+                    <option value="Търговище">Търговище
+                    </option>
+                    <option value="Хасково">Хасково
+                    </option>
+                    <option value="Шумен">Шумен
+                    </option>
+                    <option value="Ямбол">Ямбол
+                    </option>
+                    <option value="Извън страната">Извън страната
+
+                    </option>
+                </select>
             </div>
-            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Price</label><input class="form-control" type="text"></form>
-            </div>
-            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Year</label>
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
-                <form><label>Millage</label><input class="form-control" type="text"></form>
-            </div>
-            <div class="col col-md-3 col-sm-12 col-xs-12">
-                <form><label>Engine type</label>
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </div>
-                </form>
-            </div>
-            <div class="col col-md-3 col-sm-12 col-xs-12">
-                <form><label>Location</label>
-                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Dropdown </button>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                    </div>
-                </form>
+        </div>
+
+        <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+            <div>
+                <label>Town</label>
+                <br>
+                <select name="town" id="dropdownTown" class="dropdownMenu">
+                    <option value="">All</option>
+                </select>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-4 col-sm-12 col-xs-12">
-                <h1 style="font-size: 25px;font-family: Montserrat, sans-serif;">Security</h1>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">GPS System</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Active Stability Control</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Adaptive Lights</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">ABS</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Airbags - Front</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Airbags - Rear</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Airbags - Center</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Electronic brakeforce distribution&nbsp;</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Electronic stability control</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Dynamic stability system</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Traction control system</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Dry brake system</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Distronic</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Hill Decent Control</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Brake Asist</label></div>
-            </div>
-            <div class="col-12 col-md-4 col-sm-12 col-xs-12">
-                <h1 style="font-size: 25px;font-family: Montserrat, sans-serif;">Comfort</h1>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Auto Start Stop function</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Bluetooth \ handsfree</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">DVD, TV</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Steptronic, Tiptronic<br></label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">USB, audio\video, IN\AUX&nbsp;</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Keyless</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Locked differential</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Board computer</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">A/C</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Electric Power Steering</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Cruise Control</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Active charcoal filter</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Front window heating</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Seat heating</label></div>
-                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Rain sensor</label></div>
-            </div>
-            <div class="col-12 offset-0 col-sm-12 col-xs-12">
-                <h1 style="font-size: 25px;font-family: Montserrat, sans-serif;">Description</h1><textarea class="saleDescription"></textarea></div>
-            <div class="col-12 offset-0 col-md-6 col-sm-12 col-xs-12">
-                <!-- Start: Drag & Drop Upload Form -->
-                <div class="dashed_upload"><form method="post" class="file-uploader" action="" enctype="multipart/form-data">
-  <div class="file-uploader__message-area">
-    <p>Select a file to upload</p>
-  </div>
-  <div class="file-chooser">
-    <input class="file-chooser__input" type="file">
-  </div>
-  <input class="file-uploader__submit-button" type="submit" value="Upload">
-</form></div>
-                <!-- End: Drag & Drop Upload Form -->
-            </div>
+        <div class="container cheks">
+    <div class="row">
+        <div class="col-12 col-md-4 col-sm-12 col-xs-12">
+            <h1 style="font-size: 25px;font-family: Montserrat, sans-serif;">Security</h1>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">GPS System</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Active Stability Control</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Adaptive Lights</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">ABS</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Airbags - Front</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Airbags - Rear</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Airbags - Center</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Electronic brakeforce distribution&nbsp;</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Electronic stability control</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Dynamic stability system</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Traction control system</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Dry brake system</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Distronic</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Hill Decent Control</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Brake Asist</label></div>
         </div>
-    </div>
-    <!-- Start: Footer Dark -->
-    <div class="footer-dark">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <!-- Start: Services -->
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Hosting</a></li>
-                        </ul>
-                    </div>
-                    <!-- End: Services -->
-                    <!-- Start: About -->
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
-                        </ul>
-                    </div>
-                    <!-- End: About -->
-                    <!-- Start: Footer Text -->
-                    <div class="col-md-6 item text">
-                        <h3>Company Name</h3>
-                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-                    </div>
-                    <!-- End: Footer Text -->
-                    <!-- Start: Social Icons -->
-                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
-                    <!-- End: Social Icons -->
+        <div class="col-12 col-md-4 col-sm-12 col-xs-12">
+            <h1 style="font-size: 25px;font-family: Montserrat, sans-serif;">Comfort</h1>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Auto Start Stop function</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Bluetooth \ handsfree</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">DVD, TV</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Steptronic, Tiptronic<br></label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">USB, audio\video, IN\AUX&nbsp;</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Keyless</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Locked differential</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Board computer</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">A/C</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Electric Power Steering</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Cruise Control</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Active charcoal filter</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Front window heating</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Seat heating</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                    class="form-check-label" for="formCheck-1">Rain sensor</label></div>
+        </div>
+        <div class="col-12 col-md-4 col-sm-12 col-xs-12">
+            <h1 style="font-size: 25px;font-family: Montserrat, sans-serif;">Description</h1><textarea
+                name="description" class="saleDescription"></textarea></div>
+
+
+
+        <div class="col-12 col-md-6 col-sm-12 col-xs-12 justify-content-center align-items-center fileUpload" style="margin-bottom: 100px;margin-left: auto;margin-right: auto">
+            <div class="dashed_upload">
+                <div class="file-uploader__message-area">
+                    <p>Select a file to upload</p>
                 </div>
-                <!-- Start: Copyright -->
-                <p class="copyright">Company Name © 2017</p>
-                <!-- End: Copyright -->
+                <div class="file-chooser">
+                    <input name="image" class="file-chooser__input" type="file"/>
+                </div>
+
+                <input class="file-uploader__submit-button" type="submit" value="Upload">
             </div>
-        </footer>
+        </div>
+
     </div>
-    <!-- End: Footer Dark -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/script.min.js?h=4b850b85797961b41c4dd8db0ee56a9a"></script>
+
+    </div>
+        </div>
+
+    </form>
+
+
+<!-- Start: Footer Dark -->
+<th:block th:include="~{_shared/footer}"/>
+<!-- End: Footer Dark -->
+<th:block th:include="~{_shared/script}"/>
 </body>
 
 </html>

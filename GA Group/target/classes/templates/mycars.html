@@ -2,32 +2,12 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Search a car</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.min.css?h=15b99ddeda580a2dad8a44d3c0401b75">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <th:block th:include="~{_shared/head}"/>
 </head>
 
 <body>
     <!-- Start: Navigation with Button -->
-    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
-        <div class="container"><a class="navbar-brand" href="#">GA Group</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: rgba(0,0,0,0.1);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon border-dark" style="background-image: url(&quot;/assets/img/clipart365828.png?h=a8445024ce4e233afa187c544b04530f&quot;);"></span></button>
-            <div
-                class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Find your car</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">My cars</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Post new car</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" id="group" href="#">Rent a car</a></li>
-                </ul><span class="navbar-text actions"> <a class="btn border rounded-0 action-button" role="button" href="#">Sign Up</a></span></div>
-        </div>
-    </nav>
+    <th:block th:include="~{_shared/navbar}"/>
     <!-- End: Navigation with Button -->
     <div class="jumbotron"></div>
     <h1 class="title" style="font-size: 37px;font-family: Montserrat, sans-serif;font-style: normal;">My cars</h1>
@@ -99,9 +79,8 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/script.min.js?h=4b850b85797961b41c4dd8db0ee56a9a"></script>
+
+    <th:block th:include="~{_shared/script}"/>
 </body>
 
 </html>

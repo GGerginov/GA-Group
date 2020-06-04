@@ -6,7 +6,9 @@
 </head>
 
 <body>
-    <!-- Start: Navigation with Button -->
+    <div id="preloader"></div>
+
+<!-- Start: Navigation with Button -->
     <th:block th:include="~{_shared/navbar}"/>
     <!-- End: Navigation with Button -->
     <div class="jumbotron"></div>
@@ -59,9 +61,7 @@
 
     <th:block th:include="~{_shared/footer}"/>
     <!-- End: Pretty Registration Form -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/script.min.js?h=7449453b13d525ac82e6f4693bb03581"></script>
+    <th:block th:include="~{_shared/script}"/>
 </body>
 
 </html>
