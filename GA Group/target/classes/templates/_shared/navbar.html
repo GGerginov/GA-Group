@@ -5,10 +5,13 @@
             <div
                     class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Find your car</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Post new car</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/cars/search">Find your car</a></li>
+                    <li class="nav-item" role="presentation" sec:authorize="isAuthenticated()"><a class="nav-link active" href="/cars/create">Post new car</a></li>
+                    <li class="nav-item" role="presentation" sec:authorize="isAuthenticated()"><a class="nav-link active" href="/cars/myCars">My cars</a></li>
+                    <li class="nav-item" role="presentation" ><a class="nav-link active" href="/contact">Contact</a></li>
+                    <li class="nav-item" role="presentation" sec:authorize="isAuthenticated()"><a class="nav-link active" href="/logout">Logout</a></li>
                     <li class="nav-item" role="presentation"></li>
-                </ul><span class="navbar-text actions"> <a class="btn border rounded-0 action-button" role="button" href="#">Sign Up</a></span></div>
+                </ul><span class="navbar-text actions"> <a class="btn border rounded-0 action-button" role="button" href="/login">Sign Up</a></span></div>
         </div>
     </nav>
 </th:block>

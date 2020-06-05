@@ -3,14 +3,23 @@ package GA.demo.service.model;
 import GA.demo.domain.enums.EngineType;
 import GA.demo.domain.enums.Transmision;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CarServiceModel {
+
+    private String id;
+
+    private UserServiceModel user;
 
     private String manufacturer;
 
     private String model;
 
     private Integer price;
+
+    private String year;
 
     private Integer horsePower;
 
@@ -22,21 +31,23 @@ public class CarServiceModel {
 
     private String color;
 
-    private String location;
+    private String town;
+
+    private String region;
 
     private String euroStandard;
 
-    public CarServiceModel(String manufacturer, String model, Integer price, Integer horsePower, Transmision transmision, EngineType engineType, Integer millage, String color, String location, String euroStandard) {
-        this.manufacturer = manufacturer;
-        this.model = model;
-        this.price = price;
-        this.horsePower = horsePower;
-        this.transmision = transmision;
-        this.engineType = engineType;
-        this.millage = millage;
-        this.color = color;
-        this.location = location;
-        this.euroStandard = euroStandard;
+    private String description;
+
+    private List<PhotoServiceModel> photos;
+
+
+    public CarServiceModel() {
+        this.photos = new ArrayList<>();
+    }
+
+    public void addPhoto(PhotoServiceModel photoServiceModel){
+        this.photos.add(photoServiceModel);
     }
 
     public String getManufacturer() {
@@ -104,11 +115,11 @@ public class CarServiceModel {
     }
 
     public String getLocation() {
-        return location;
+        return town;
     }
 
     public void setLocation(String location) {
-        this.location = location;
+        this.town = location;
     }
 
     public String getEuroStandard() {
@@ -117,5 +128,61 @@ public class CarServiceModel {
 
     public void setEuroStandard(String euroStandard) {
         this.euroStandard = euroStandard;
+    }
+
+    public List<PhotoServiceModel> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<PhotoServiceModel> photos) {
+        this.photos = photos;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public UserServiceModel getUser() {
+        return user;
+    }
+
+    public void setUser(UserServiceModel user) {
+        this.user = user;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

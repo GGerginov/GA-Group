@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <th:block th:include="~{_shared/head}"/>
@@ -11,185 +12,493 @@
     <th:block th:include="~{_shared/navbar}"/>
     <!-- End: Navigation with Button -->
     <div class="jumbotron" style="width: 100%;"></div>
+
     <section>
+
         <div class="container-fluid">
             <div class="row">
-                <div class="col">
+                <form class="col" action="/cars/search" method="post">
+
                     <div class="search-form row">
+
                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Manufacturer</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                            <div>
+                                <label>Manufacturer</label>
+                                <br>
+                                <select name="manufacturer" id="dropdownManufacturer" onchange="getManufacturer(this.value)" class="dropdownMenu">
+                                    <option value="">All
+                                    </option>
+                                    <option value="AC">AC
+                                    </option>
+                                    <option value="Abarth">Abarth
+                                    </option>
+                                    <option value="Acura">Acura
+                                    </option>
+                                    <option value="Aixam">Aixam
+                                    </option>
+                                    <option value="Alfa Romeo">Alfa Romeo
+                                    </option>
+                                    <option value="Alpina">Alpina
+                                    </option>
+                                    <option value="Aro">Aro
+                                    </option>
+                                    <option value="Asia">Asia
+                                    </option>
+                                    <option value="Aston martin">Aston martin
+                                    </option>
+                                    <option value="Audi">Audi
+                                    </option>
+                                    <option value="Austin">Austin
+                                    </option>
+                                    <option value="BMW">BMW
+                                    </option>
+                                    <option value="Bentley">Bentley
+                                    </option>
+                                    <option value="Berliner">Berliner
+                                    </option>
+                                    <option value="Bertone">Bertone
+                                    </option>
+                                    <option value="Borgward">Borgward
+                                    </option>
+                                    <option value="Brilliance">Brilliance
+                                    </option>
+                                    <option value="Bugatti">Bugatti
+                                    </option>
+                                    <option value="Buick">Buick
+                                    </option>
+                                    <option value="Cadillac">Cadillac
+                                    </option>
+                                    <option value="Chevrolet">Chevrolet
+                                    </option>
+                                    <option value="Chrysler">Chrysler
+                                    </option>
+                                    <option value="Citroen">Citroen
+                                    </option>
+                                    <option value="Corvette">Corvette
+                                    </option>
+                                    <option value="Cupra">Cupra
+                                    </option>
+                                    <option value="DS">DS
+                                    </option>
+                                    <option value="Dacia">Dacia
+                                    </option>
+                                    <option value="Daewoo">Daewoo
+                                    </option>
+                                    <option value="Daihatsu">Daihatsu
+                                    </option>
+                                    <option value="Daimler">Daimler
+                                    </option>
+                                    <option value="Datsun">Datsun
+                                    </option>
+                                    <option value="Dkw">Dkw
+                                    </option>
+                                    <option value="Dodge">Dodge
+                                    </option>
+                                    <option value="Dr">Dr
+                                    </option>
+                                    <option value="Eagle">Eagle
+                                    </option>
+                                    <option value="FSO">FSO
+                                    </option>
+                                    <option value="Ferrari">Ferrari
+                                    </option>
+                                    <option value="Fiat">Fiat
+                                    </option>
+                                    <option value="Ford">Ford
+                                    </option>
+                                    <option value="GOUPIL">GOUPIL
+                                    </option>
+                                    <option value="Gaz">Gaz
+                                    </option>
+                                    <option value="Geo">Geo
+                                    </option>
+                                    <option value="Gmc">Gmc
+                                    </option>
+                                    <option value="Great Wall">Great Wall
+                                    </option>
+                                    <option value="Haval">Haval
+                                    </option>
+                                    <option value="Heinkel">Heinkel
+                                    </option>
+                                    <option value="Hillman">Hillman
+                                    </option>
+                                    <option value="Honda">Honda
+                                    </option>
+                                    <option value="Hummer">Hummer
+                                    </option>
+                                    <option value="Hyundai">Hyundai
+                                    </option>
+                                    <option value="Ifa">Ifa
+                                    </option>
+                                    <option value="Infiniti">Infiniti
+                                    </option>
+                                    <option value="Innocenti">Innocenti
+                                    </option>
+                                    <option value="Isuzu">Isuzu
+                                    </option>
+                                    <option value="Iveco">Iveco
+                                    </option>
+                                    <option value="JAS">JAS
+                                    </option>
+                                    <option value="Jaguar">Jaguar
+                                    </option>
+                                    <option value="Jeep">Jeep
+                                    </option>
+                                    <option value="Jpx">Jpx
+                                    </option>
+                                    <option value="Kia">Kia
+                                    </option>
+                                    <option value="Lada">Lada
+                                    </option>
+                                    <option value="Laforza">Laforza
+                                    </option>
+                                    <option value="Lamborghini">Lamborghini
+                                    </option>
+                                    <option value="Lancia">Lancia
+                                    </option>
+                                    <option value="Land Rover">Land Rover
+                                    </option>
+                                    <option value="Landwind">Landwind
+                                    </option>
+                                    <option value="Lexus">Lexus
+                                    </option>
+                                    <option value="Lifan">Lifan
+                                    </option>
+                                    <option value="Lincoln">Lincoln
+                                    </option>
+                                    <option value="Lotus">Lotus
+                                    </option>
+                                    <option value="MG">MG
+                                    </option>
+                                    <option value="Mahindra">Mahindra
+                                    </option>
+                                    <option value="Maserati">Maserati
+                                    </option>
+                                    <option value="Matra">Matra
+                                    </option>
+                                    <option value="Maybach">Maybach
+                                    </option>
+                                    <option value="Mazda">Mazda
+                                    </option>
+                                    <option value="McLaren">McLaren
+                                    </option>
+                                    <option value="Mercedes-Benz">Mercedes-Benz
+                                    </option>
+                                    <option value="Mercury">Mercury
+                                    </option>
+                                    <option value="Mg">Mg
+                                    </option>
+                                    <option value="Microcar">Microcar
+                                    </option>
+                                    <option value="Mini">Mini
+                                    </option>
+                                    <option value="Mitsubishi">Mitsubishi
+                                    </option>
+                                    <option value="Morgan">Morgan
+                                    </option>
+                                    <option value="Moskvich">Moskvich
+                                    </option>
+                                    <option value="Nissan">Nissan
+                                    </option>
+                                    <option value="Oldsmobile">Oldsmobile
+                                    </option>
+                                    <option value="Opel">Opel
+                                    </option>
+                                    <option value="Perodua">Perodua
+                                    </option>
+                                    <option value="Peugeot">Peugeot
+                                    </option>
+                                    <option value="Pgo">Pgo
+                                    </option>
+                                    <option value="Plymouth">Plymouth
+                                    </option>
+                                    <option value="Polonez">Polonez
+                                    </option>
+                                    <option value="Pontiac">Pontiac
+                                    </option>
+                                    <option value="Porsche">Porsche
+                                    </option>
+                                    <option value="Proton">Proton
+                                    </option>
+                                    <option value="Renault">Renault
+                                    </option>
+                                    <option value="Rolls-Royce">Rolls-Royce
+                                    </option>
+                                    <option value="Rover">Rover
+                                    </option>
+                                    <option value="SECMA">SECMA
+                                    </option>
+                                    <option value="SH auto">SH auto
+                                    </option>
+                                    <option value="Saab">Saab
+                                    </option>
+                                    <option value="Samand">Samand
+                                    </option>
+                                    <option value="Santana">Santana
+                                    </option>
+                                    <option value="Saturn">Saturn
+                                    </option>
+                                    <option value="Scion">Scion
+                                    </option>
+                                    <option value="Seat">Seat
+                                    </option>
+                                    <option value="Shatenet">Shatenet
+                                    </option>
+                                    <option value="Shuanghuan">Shuanghuan
+                                    </option>
+                                    <option value="Simca">Simca
+                                    </option>
+                                    <option value="Skoda">Skoda
+                                    </option>
+                                    <option value="Smart">Smart
+                                    </option>
+                                    <option value="Ssang yong">Ssang yong
+                                    </option>
+                                    <option value="SsangYong">SsangYong
+                                    </option>
+                                    <option value="Subaru">Subaru
+                                    </option>
+                                    <option value="Suzuki">Suzuki
+                                    </option>
+                                    <option value="Talbot">Talbot
+                                    </option>
+                                    <option value="Tata">Tata
+                                    </option>
+                                    <option value="Tavria">Tavria
+                                    </option>
+                                    <option value="Tazzari">Tazzari
+                                    </option>
+                                    <option value="Tempo">Tempo
+                                    </option>
+                                    <option value="Terberg">Terberg
+                                    </option>
+                                    <option value="Tesla">Tesla
+                                    </option>
+                                    <option value="Tofas">Tofas
+                                    </option>
+                                    <option value="Toyota">Toyota
+                                    </option>
+                                    <option value="Trabant">Trabant
+                                    </option>
+                                    <option value="Triumph">Triumph
+                                    </option>
+                                    <option value="Uaz">Uaz
+                                    </option>
+                                    <option value="VROMOS">VROMOS
+                                    </option>
+                                    <option value="VW">VW
+                                    </option>
+                                    <option value="Volga">Volga
+                                    </option>
+                                    <option value="Volvo">Volvo
+                                    </option>
+                                    <option value="Warszawa">Warszawa
+                                    </option>
+                                    <option value="Wartburg">Wartburg
+                                    </option>
+                                    <option value="Wiesmann">Wiesmann
+                                    </option>
+                                    <option value="Xinkai">Xinkai
+                                    </option>
+                                    <option value="Xinshun">Xinshun
+                                    </option>
+                                    <option value="Zastava">Zastava
+                                    </option>
+                                    <option value="Zaz">Zaz
+                                    </option>
+                                    <option value="Други">Други
+                                    </option>
+                                    <option value="Победа">Победа
+                                    </option>
+                                    <option value="София">София
+                                    </option>
+                                    <option value="Чайка">Чайка
+
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Model</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+                                <div>
+                                    <label>Model</label>
+                                    <br>
+                                    <select name="model" id="dropdownModel" class="dropdownMenu">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Status</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                            <div class="col-6 col-md-3 col-sm-12 col-xs-12">
+                                <div>
+                                    <label>Fuel</label>
+
+                                    <select name="engineType" class="dropdownMenu">
+                                        <option value="">All
+                                        </option>
+                                        <option value="PETROL">Petrol</option>
+                                        <option value="DIESEL">Diesel</option>
+                                        <option value="ELECTRICITY">Electricity</option>
+                                        <option value="LPG">LPG</option>
+                                        <option value="CNG">CNG</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
+                            <div>
+                                <label>Year</label>
+                                <br>
+                                <select name="year" class="dropdownMenu">
+                                    <option value="">All
+                                    </option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1990">1990</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Year</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                            <div>
+                                <label>Region</label>
+                                <br>
+                                <select name="region" id="dropdownRegion" class="dropdownMenu" onchange="getTownByRegion(this.value)">
+                                    <option value="">All
+                                    </option>
+                                    <option value="Благоевград">Благоевград
+                                    </option>
+                                    <option value="Бургас">Бургас
+                                    </option>
+                                    <option value="Варна">Варна
+                                    </option>
+                                    <option value="Велико Търново">Велико Търново
+                                    </option>
+                                    <option value="Видин">Видин
+                                    </option>
+                                    <option value="Враца">Враца
+                                    </option>
+                                    <option value="Габрово">Габрово
+                                    </option>
+                                    <option value="Добрич">Добрич
+                                    </option>
+                                    <option value="Дупница">Дупница
+                                    </option>
+                                    <option value="Кърджали">Кърджали
+                                    </option>
+                                    <option value="Кюстендил">Кюстендил
+                                    </option>
+                                    <option value="Ловеч">Ловеч
+                                    </option>
+                                    <option value="Монтана">Монтана
+                                    </option>
+                                    <option value="Пазарджик">Пазарджик
+                                    </option>
+                                    <option value="Перник">Перник
+                                    </option>
+                                    <option value="Плевен">Плевен
+                                    </option>
+                                    <option value="Пловдив">Пловдив
+                                    </option>
+                                    <option value="Разград">Разград
+                                    </option>
+                                    <option value="Русе">Русе
+                                    </option>
+                                    <option value="Силистра">Силистра
+                                    </option>
+                                    <option value="Сливен">Сливен
+                                    </option>
+                                    <option value="Смолян">Смолян
+                                    </option>
+                                    <option value="София">София
+                                    </option>
+                                    <option value="Стара Загора">Стара Загора
+                                    </option>
+                                    <option value="Търговище">Търговище
+                                    </option>
+                                    <option value="Хасково">Хасково
+                                    </option>
+                                    <option value="Шумен">Шумен
+                                    </option>
+                                    <option value="Ямбол">Ямбол
+                                    </option>
+                                    <option value="Извън страната">Извън страната
+
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Location</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
+                            <div>
+                                <label>Town</label>
+                                <br>
+                                <select name="town" id="dropdownTown" class="dropdownMenu">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 dropdownDiv">
-                            <form><span>Millage Range</span><select class="form-control manufacturer-dropdown"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></form>
-                        </div><button class="btn border rounded-0 shadow" id="searchButton" type="button">Search</button></div>
-                </div>
+
+                        <button class="btn border rounded-0 shadow" id="searchButton" type="submit">Search</button></div>
+
+                </form>
             </div>
         </div>
+
     </section>
     <div class="container">
+
+
         <div class="row">
+
+            <th:block th:each="car : ${cars}">
             <div class="col-12 col-xs-12 col-sm-6" id="col" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
-                <div class="card" id="card1">
-                    <div class="card-body"></div>
+
+                <div class="card" id="card1" th:style="'background-image:url(' + ${car.getPhotos().get(0).getUrl()} + ');background-position: contain;'">
+                    <div class="card-body">
+
+                    </div>
                 </div>
                 <div id="details" class="details">
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year">2020</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="/carDetails.html">Details &gt;&gt;</a></div>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" th:text="${car.getManufacturer() +' '+ car.getModel()}"></h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year" th:text="${car.getYear()}"></h4>
+                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel" th:text="${car.getEngineType().toString().charAt(0)}+${car.getEngineType().toString().toLowerCase().substring(1)}"></h4>
+                    <a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" th:href="@{/cars/details/{id}(id = ${car.getId()})}" >Details &gt;&gt;</a></div>
             </div>
-            <div class="col-12 offset-0 col-xs-12 col-sm-6" id="col-1" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
-                <div class="card" id="card-1" style="background-image: url(&quot;/assets/img/porche.jpg?h=0a09fe093a66feebdfc6334214e5465a&quot;);height: 400px;">
-                    <div class="card-body"></div>
-                </div>
-                <div id="details-1" class="details">
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-1">2020</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-1">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="#">Details &gt;&gt;</a></div>
-            </div>
-            <div class="col-12 col-xs-12 col-sm-6" id="col-2" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
-                <div class="card" id="card-2">
-                    <div class="card-body"></div>
-                </div>
-                <div id="details-2" class="details">
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-2">2020</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-2">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="#">Details &gt;&gt;</a></div>
-            </div>
-            <div class="col col-xs-12 col-sm-6" id="col-3" onmouseover="fadeInImg(this)" onmouseout="fadeOutImg(this)">
-                <div class="card" id="card-3" style="background-image: url(&quot;/assets/img/bmw%20328.jpg?h=4f390dc1c5a2e7ae361ec00df8681894&quot;);">
-                    <div class="card-body"></div>
-                </div>
-                <div id="details-3" class="details">
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end">Porshe 911 GT2</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="year-3">2020</h4>
-                    <h4 class="d-lg-flex justify-content-lg-end align-items-lg-end" id="fuel-3">Petrol</h4><a class="d-lg-flex justify-content-lg-end" data-bs-hover-animate="pulse" href="/carDetails.html">Details &gt;&gt;</a></div>
-            </div>
+            </th:block>
         </div>
     </div>
-    <!-- Start: Footer Dark -->
-    <div class="footer-dark">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <!-- Start: Services -->
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Hosting</a></li>
-                        </ul>
-                    </div>
-                    <!-- End: Services -->
-                    <!-- Start: About -->
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
-                        </ul>
-                    </div>
-                    <!-- End: About -->
-                    <!-- Start: Footer Text -->
-                    <div class="col-md-6 item text">
-                        <h3>Company Name</h3>
-                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-                    </div>
-                    <!-- End: Footer Text -->
-                    <!-- Start: Social Icons -->
-                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
-                    <!-- End: Social Icons -->
-                </div>
-                <!-- Start: Copyright -->
-                <p class="copyright">Company Name © 2017</p>
-                <!-- End: Copyright -->
-            </div>
-        </footer>
-    </div>
-    <!-- End: Footer Dark -->
-    <!-- Start: Swipe Slider 7 --><!-- Paradise Slider -->
-	<div id="fw_al_001" class="carousel slide ps_slide_y ps_indicators_y swipe_y ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2500">
 
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#fw_al_001" data-slide-to="0" class="active"></li>
-			<li data-target="#fw_al_001" data-slide-to="1"></li>
-			<li data-target="#fw_al_001" data-slide-to="2"></li>
-		</ol>
+    <th:block th:include="~{_shared/footer}"/>
 
-		<!-- Wrapper For Slides -->
-		<div class="carousel-inner" role="listbox">
-
-			<!-- First Slide -->
-			<div class="carousel-item active">
-
-				<!-- Slide Background -->
-				<img src="/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3" alt="fw_al_001_01">
-
-				<!-- Slide Text Layer -->
-				<div class="fw_al_001_slide">
-					<h3 data-animation="animated fadeInUp">Mclaren</h3>
-					<h1 data-animation="animated fadeInUp">P1 S</h1>
-					
-					<a href="#" data-animation="animated fadeInUp">Details</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-
-			<!-- Second Slide -->
-			<div class="carousel-item">
-
-				<!-- Slide Background -->
-				<img src="/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3" alt="fw_al_001_01">
-
-				<!-- Slide Text Layer -->
-				<div class="fw_al_001_slide">
-					<h3 data-animation="animated fadeInUp">Mclaren</h3>
-					<h1 data-animation="animated fadeInUp">P1 S</h1>
-					
-					<a href="#" data-animation="animated fadeInUp">Details</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-
-			<!-- Third Slide -->
-			<div class="carousel-item">
-
-				<!-- Slide Background -->
-				<img src="/assets/img/porshe.jpg?h=ccc012ac3773ec1a2c19f77654e4243e" alt="fw_al_001_03">
-
-				<!-- Slide Text Layer -->
-				<div class="fw_al_001_slide">
-					<h3 data-animation="animated fadeInUp">wx erat</h3>
-					<h1 data-animation="animated fadeInUp">Aliquamaeuhw</h1>
-					<p data-animation="animated fadeInUp">lorem 2018, ipsum out of sapien, consequa</p>
-					<a href="#" data-animation="animated fadeInUp">Details</a>
-				</div>
-			</div>
-			<!-- End of Slide -->
-
-		</div><!-- End of Wrapper For Slides -->
-
-	</div> <!-- End Paradise Slider -->
-
-	
-
-
- <!-- End -->
-    <!-- End: Swipe Slider 7 -->
     <th:block th:include="~{_shared/script}"/>
 </body>
 

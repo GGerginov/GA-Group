@@ -255,6 +255,13 @@ element.style {
   }
 }
 
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+
+  .container.desciption {
+    padding-top: 590px;
+  }
+}
+
 .search-form.row {
   height: 200px;
   padding-left: 100px;
@@ -308,7 +315,6 @@ element.style {
   border: 2px solid balck;
   opacity: 1;
   z-index: -1;
-  background-image: url("/assets/img/porche.jpg?h=0a09fe093a66feebdfc6334214e5465a");
   background-position: center;
 }
 
@@ -319,7 +325,6 @@ element.style {
   border: 2px solid balck;
   opacity: 1;
   z-index: -1;
-  background-image: url("/assets/img/porche.jpg?h=0a09fe093a66feebdfc6334214e5465a");
   background-position: center;
 }
 
@@ -330,7 +335,6 @@ element.style {
   border: 2px solid balck;
   opacity: 1;
   z-index: -1;
-  background-image: url("/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3");
   background-position: center;
 }
 

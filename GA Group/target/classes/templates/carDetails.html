@@ -1,169 +1,218 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <th:block th:include="~{_shared/head}"/>
 </head>
 
 <body>
-    <div id="preloader"></div>
-    <!-- Start: Navigation with Button -->
-    <<th:block th:include="~{_shared/navbar}"/>
-    <!-- End: Navigation with Button -->
-    <div class="jumbotron"></div>
-    <div class="container" style="margin-top: 51px;">
-        <div class="row" style="height: 450px;">
-            <div class="col-12 col-md-8 col-sm-12">
-                <div class="carousel slide" data-ride="carousel" id="carousel-1" style="height: 450px;">
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active" id="slide"><!-- Trigger the Modal -->
+<div id="preloader"></div>
+<!-- Start: Navigation with Button -->
 
-<img class="carImg" src="/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3" style="width=100%;height=100%;max-width: 
-800px;" onclick ="modalImg(this);">
+<th:block th:include="~{_shared/navbar}"/>
+<!-- End: Navigation with Button -->
+<div class="jumbotron"></div>
+<div class="container" style="margin-top: 51px;">
+    <div class="row" style="height: 450px;">
+        <div class="col-12 col-md-8 col-sm-12">
+            <div class="carousel slide" data-ride="carousel" id="carousel-1" style="height: 450px;">
+                <div class="carousel-inner" role="listbox">
+                    <th:block th:each="photo, iStat : ${car.getPhotos()}">
 
-<!-- The Modal -->
-<div class="myModal" class="modal">
+                        <div th:if="${iStat.first}" class="carousel-item active" id="slide"><!-- Trigger the Modal -->
 
-  <!-- The Close Button -->
-    
-   
-  <span class="close" onclick="modalClose(this);">&times;</span>
-    
-  <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
+                            <img class="carImg" th:src="@{${car.getPhotos()[0].getUrl()}}" style="width=100%;height=100%;max-width:
+800px;" onclick="modalImg(this);">
 
-  <!-- Modal Caption (Image Text) -->
-  <div class="caption"></div>
-</div>
-    
-</div>
-                        <div class="carousel-item" id="slide-1"><!-- Trigger the Modal -->
+                            <!-- The Modal -->
+                            <div class="myModal modal">
 
-<img class="carImg" src="/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3" style="width=100%;height=100%;max-width: 
-800px;" onclick ="modalImg(this);">
+                                <!-- The Close Button -->
 
-<!-- The Modal -->
-<div class="myModal" class="modal">
 
-  <!-- The Close Button -->
-    
-   
-  <span class="close" onclick="modalClose(this);">&times;</span>
-    
-  <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
+                                <span class="close" onclick="modalClose(this);">&times;</span>
 
-  <!-- Modal Caption (Image Text) -->
-  <div class="caption"></div>
-</div>
-    
-</div>
+                                <!-- Modal Content (The Image) -->
+                                <img class="modal-content" id="img01">
+
+                                <!-- Modal Caption (Image Text) -->
+                                <div class="caption"></div>
+                            </div>
+
+                        </div>
+
+                        <div th:unless="${iStat.first}" class="carousel-item " id="slide-1"><!-- Trigger the Modal -->
+
+                        <img class="carImg" th:src="@{${photo.getUrl()}}" style="width=100%;height=100%;max-width:800px;" onclick="modalImg(this);">
+
+                        <!-- The Modal -->
+                        <div class="myModal modal">
+
+                            <!-- The Close Button -->
+
+
+                            <span class="close" onclick="modalClose(this);">&times;</span>
+
+                            <!-- Modal Content (The Image) -->
+                            <img class="modal-content" id="img01">
+
+                            <!-- Modal Caption (Image Text) -->
+                            <div class="caption"></div>
+                        </div>
+
                     </div>
-                    <div class="controllers">
-                        <!-- Start: Previous --><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a>
-                        <!-- End: Previous -->
-                        <!-- Start: Next --><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a>
-                        <!-- End: Next -->
-                    </div>
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-1" data-slide-to="1"></li>
-                    </ol>
+                    </th:block>
+                </div>
+                <div class="controllers">
+                    <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="sr-only">Previous</span></a>
+
+                    <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <!-- End: Next -->
+                </div>
+                <ol class="carousel-indicators">
+                    <th:block th:each="photo, iStat : ${car.getPhotos()}">
+                        <li th:if="${iStat.first}" data-target="#carousel-1" data-slide-to="0" class="active"></li>
+                        <li th:unless="${iStat.first}" data-target="#carousel-1" th:attr="data-slide-to=${iStat.index}"></li>
+                    </th:block>
+                </ol>
+            </div>
+        </div>
+        <div class="col-7 col-md-1 sellerDesc col-sm-12">
+            <div class="row">
+                <div class="col">
+                    <p class="price" th:text="${car.getPrice()}+' лв'"> лв</p>
                 </div>
             </div>
-            <div class="col-7 col-md-1 sellerDesc col-sm-12">
-                <div class="row">
-                    <div class="col">
-                        <p class="price">5000 лв</p>
-                    </div>
-                </div><img class="rounded profileImg" src="/assets/img/4.png?h=c70bae15084e7c042a3e9a1fc02e20ed">
-                <p class="phone"><i class="fa fa-phone" style="color: rgba(255,0,0,0.8);"></i>&nbsp;0889467086</p>
-                <p class="mail"><i class="icon ion-email" style="color: rgba(255,0,0,0.8);"></i>&nbsp;softauto@abv.bg</p>
+            <img class="rounded profileImg" src="/assets/img/4.png?h=c70bae15084e7c042a3e9a1fc02e20ed">
+            <p class="phone"><i class="fa fa-phone" style="color: rgba(255,0,0,0.8);" th:text="${car.getUser().getPhoneNumber()}"></i>&nbsp;</p>
+            <p class="mail"><i class="icon ion-email" style="color: rgba(255,0,0,0.8);"th:text="${car.getUser().getEmail()}"></i>&nbsp</p>
+        </div>
+    </div>
+</div>
+<div class="container desciption">
+    <div class="row">
+        <div class="col-12 col-md-8 col-xs-12">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr></tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td style="font-size: 20px;color: rgba(0,0,0,0.8);font-weight: bold;">Manufacturer</td>
+                        <td style="font-family: Montserrat, sans-serif;" th:text="${car.getManufacturer()}"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px;font-weight: bold;">Model</td>
+                        <td style="font-family: Montserrat, sans-serif;" th:text="${car.getModel()}">328</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px;font-weight: bold;">Fuel</td>
+                        <td style="font-family: Montserrat, sans-serif;"
+                            th:text="${car.getEngineType().toString().charAt(0)}+${car.getEngineType().toString().toLowerCase().substring(1)}"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px;font-weight: bold;">Millage</td>
+                        <td style="font-family: Montserrat, sans-serif;" th:text="${car.getMillage()}"> km</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px;font-weight: bold;">First registration</td>
+                        <td style="font-family: Montserrat, sans-serif;" th:text="${car.getYear()}">1995</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px;font-weight: bold;">Power</td>
+                        <td style="font-family: Montserrat, sans-serif;" th:text="${car.getHorsePower()}"> hp</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px;font-weight: bold;">Category</td>
+                        <td style="font-family: Montserrat, sans-serif;">Coupe</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px;font-weight: bold;">Emissions class</td>
+                        <td style="font-family: Montserrat, sans-serif;" th:text="${car.getEuroStandard()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col col-md-4 col-xs-12">
+            <div class="mail-form" style="font-family: Montserrat, sans-serif;">
+                <h1 style="font-size: 29px;font-family: Montserrat, sans-serif;">Send mail</h1>
+                <div class="mail-form"><label style="font-family: Montserrat, sans-serif;">Name*</label><input
+                        class="form-control-plaintext input" type="text" style="font-family: Montserrat, sans-serif;">
+                </div>
+                <label style="font-family: Montserrat, sans-serif;">Telephone*</label>
+                <input
+                        class="form-control-plaintext input" type="text"><label
+                    style="font-family: Montserrat, sans-serif;">Email</label><input
+                    class="form-control-plaintext input" type="text"><label
+                    style="font-family: Montserrat, sans-serif;">Content</label><input
+                    class="form-control-plaintext input content"
+                    type="text">
+                <div class="sendButton">
+                    <button class="btn" type="button">Send now !</button>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container desciption">
-        <div class="row">
-            <div class="col-12 col-md-8 col-xs-12">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr></tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="font-size: 20px;color: rgba(0,0,0,0.8);font-weight: bold;">Manufacturer</td>
-                                <td style="font-family: Montserrat, sans-serif;">BMW</td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 20px;font-weight: bold;">Model</td>
-                                <td style="font-family: Montserrat, sans-serif;">328</td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 20px;font-weight: bold;">Fuel</td>
-                                <td style="font-family: Montserrat, sans-serif;">Petrol</td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 20px;font-weight: bold;">Millage</td>
-                                <td style="font-family: Montserrat, sans-serif;">200000 km</td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 20px;font-weight: bold;">First registration</td>
-                                <td style="font-family: Montserrat, sans-serif;">1995</td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 20px;font-weight: bold;">Power</td>
-                                <td style="font-family: Montserrat, sans-serif;">193 hp</td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 20px;font-weight: bold;">Category</td>
-                                <td style="font-family: Montserrat, sans-serif;">Coupe</td>
-                            </tr>
-                            <tr>
-                                <td style="font-size: 20px;font-weight: bold;">Emissions class</td>
-                                <td style="font-family: Montserrat, sans-serif;">Euro 3</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col col-md-4 col-xs-12">
-                <div class="mail-form" style="font-family: Montserrat, sans-serif;">
-                    <h1 style="font-size: 29px;font-family: Montserrat, sans-serif;">Send mail</h1>
-                    <div class="mail-form"><label style="font-family: Montserrat, sans-serif;">Name*</label><input class="form-control-plaintext input" type="text" style="font-family: Montserrat, sans-serif;"></div><label style="font-family: Montserrat, sans-serif;">Telephone*</label>
-                    <input
-                        class="form-control-plaintext input" type="text"><label style="font-family: Montserrat, sans-serif;">Email</label><input class="form-control-plaintext input" type="text"><label style="font-family: Montserrat, sans-serif;">Content</label><input class="form-control-plaintext input content"
-                            type="text">
-                        <div class="sendButton"><button class="btn" type="button">Send now !</button></div>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col col-12" style="height: 250px">
+            <h1 class="text-left" style="font-family: Montserrat, sans-serif;font-size: 30px;">Description</h1>
+            <textarea style="width: 100%;height: 100%;font-family: Montserrat, sans-serif;" readonly th:text="${car.getDescription()}"></textarea>
         </div>
     </div>
-    <div class="container" style="padding-top: 10px;">
-        <h1 style="font-size: 30px;font-family: Montserrat, sans-serif;">Features</h1>
-        <div class="row">
-            <div class="col-12 col-md-6 col-sm-12 col-xs-12">
-                <ul class="extras">
-                    <li><i class="fa fa-check"></i>&nbsp;ABS</li>
-                    <li><i class="fa fa-check"></i>&nbsp;DVD, TV</li>
-                    <li><i class="fa fa-check"></i>&nbsp;ASR</li>
-                    <li><i class="fa fa-check"></i>&nbsp;Keyless</li>
-                    <li><i class="fa fa-check"></i>&nbsp;DCT</li>
-                    <li><i class="fa fa-check"></i>&nbsp;ACC</li>
-                    <li><i class="fa fa-check"></i>&nbsp;Airmatic</li>
-                    <li><i class="fa fa-check"></i>&nbsp;Cruise Control</li>
-                </ul>
+</div>
+<div class="container" style="padding-top: 10px;">
+    <h1 style="font-size: 30px;font-family: Montserrat, sans-serif;">Features</h1>
+    <div class="row">
+        <div class="col-12 col-md-6 col-sm-12 col-xs-12">
+            <ul class="extras">
+                <li><i class="fa fa-check"></i>&nbsp;ABS</li>
+                <li><i class="fa fa-check"></i>&nbsp;DVD, TV</li>
+                <li><i class="fa fa-check"></i>&nbsp;ASR</li>
+                <li><i class="fa fa-check"></i>&nbsp;Keyless</li>
+                <li><i class="fa fa-check"></i>&nbsp;DCT</li>
+                <li><i class="fa fa-check"></i>&nbsp;ACC</li>
+                <li><i class="fa fa-check"></i>&nbsp;Airmatic</li>
+                <li><i class="fa fa-check"></i>&nbsp;Cruise Control</li>
+            </ul>
+        </div>
+        <div class="col col-sm-12 col-xs-12 col-md-6">
+            <!-- Start: geolocation -->
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="100%" height="250" id="gmap_canvas"
+                            th:src="@{'https://maps.google.com/maps?q='+${car.getTown()}+'&t=&z=13&ie=UTF8&iwloc=&output=embed'}"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    Google Maps Generator by <a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div>
+                <style>.mapouter {
+                    position: relative;
+                    text-align: right;
+                    height: 250px;
+                    width: 100%;
+                }
+
+                .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    height: 250px;
+                    width: 100%;
+                }</style>
             </div>
-            <div class="col col-sm-12 col-xs-12 col-md-6">
-                <!-- Start: geolocation --><div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=Samokov&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>Google Maps Generator by <a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:250px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:250px;width:100%;}</style></div>
-                <!-- End: geolocation -->
-            </div>
+            <!-- End: geolocation -->
         </div>
     </div>
-    <!-- Start: Footer Dark -->
-    <th:block th:include="~{_shared/footer}"/>
-    <!-- End: Footer Dark -->
-    <th:block th:include="~{_shared/script}"/>
+</div>
+<!-- Start: Footer Dark -->
+<th:block th:include="~{_shared/footer}"/>
+<!-- End: Footer Dark -->
+<th:block th:include="~{_shared/script}"/>
 </body>
 
 </html>

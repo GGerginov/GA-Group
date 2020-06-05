@@ -4,6 +4,7 @@ import GA.demo.domain.enums.EngineType;
 import GA.demo.domain.enums.Transmision;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -21,6 +22,8 @@ public class Car extends BaseEntity{
     @Column(nullable = false)
     private Integer horsePower;
 
+    @Column(nullable = false)
+    private Integer year;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -34,13 +37,18 @@ public class Car extends BaseEntity{
     private Integer millage;
 
     @Column(nullable = false)
-    private String color;
+    private String town;
 
     @Column(nullable = false)
-    private String location;
+    private String region;
+
+
+    private String description;
 
     @Column()
     private String euroStandard;
+
+    private List<Photo> photos;
 
 
     private User user;
@@ -106,20 +114,31 @@ public class Car extends BaseEntity{
         this.millage = range;
     }
 
-    public String getColor() {
-        return color;
+
+    public String getTown() {
+        return town;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setTown(String town) {
+        this.town = town;
     }
 
-    public String getLocation() {
-        return location;
+    public String getRegion() {
+        return region;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    @Lob
+    @Column(length = 1024)
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getEuroStandard() {
@@ -130,6 +149,13 @@ public class Car extends BaseEntity{
         this.euroStandard = euroStandard;
     }
 
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
 
     @ManyToOne(targetEntity = User.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false)
@@ -139,5 +165,14 @@ public class Car extends BaseEntity{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @OneToMany(mappedBy = "car",cascade = CascadeType.ALL)
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
     }
 }
