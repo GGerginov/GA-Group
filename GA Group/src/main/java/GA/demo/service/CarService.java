@@ -14,5 +14,8 @@ public interface CarService{
 
     CarServiceModel getById(String id);
 
+    List<CarServiceModel> getByUserUsername(String username);
+
+    void deleteCarById(String id);
 
 }

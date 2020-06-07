@@ -14,6 +14,7 @@ import GA.demo.web.model.SearchCarBindingModel;
 import org.dom4j.rule.Mode;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -71,6 +72,7 @@ public class CarController extends BaseController {
 
 
     @GetMapping("/create")
+    @PreAuthorize("isAuthenticated()")
     public ModelAndView getCreate(){
 
         return super.view("createACar");
@@ -78,6 +80,7 @@ public class CarController extends BaseController {
     }
 
     @PostMapping("/create")
+    @PreAuthorize("isAuthenticated()")
     public ModelAndView postCreate(@ModelAttribute CarCreateBindingModel model, Principal principal) throws IOException {
 
 
@@ -123,6 +126,33 @@ public class CarController extends BaseController {
         view.addObject("car",this.carService.getById(id));
 
         return view;
+    }
+
+
+    @GetMapping("/my-cars")
+    @PreAuthorize("isAuthenticated()")
+    public ModelAndView getMyCars(Principal principal){
+
+        List<CarServiceModel> cars = this.carService.getByUserUsername(principal.getName());
+
+
+        ModelAndView view = new ModelAndView();
+
+        view.setViewName("mycars");
+
+        view.addObject("cars",cars);
+
+        return view;
+    }
+
+
+
+    @PostMapping("/delete/{id}")
+    public ModelAndView deleteCar(@PathVariable String id){
+
+        this.carService.deleteCarById(id);
+
+        return redirect("/home");
     }
 
 

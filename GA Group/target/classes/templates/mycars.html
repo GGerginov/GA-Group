@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <th:block th:include="~{_shared/head}"/>
@@ -11,7 +12,50 @@
     <!-- End: Navigation with Button -->
     <div class="jumbotron"></div>
     <h1 class="title" style="font-size: 37px;font-family: Montserrat, sans-serif;font-style: normal;">My cars</h1>
-    <div>
+
+    <th:block th:each="car, iStat : ${cars}">
+        <div th:if="${iStat.first}">
+        <div class="container mycars">
+            <div class="row car-card">
+                <div class="col-5 offset-0 carBlock col-md-6 col-sm-12">
+                    <h1 class="field" style="font-family: Montserrat, sans-serif;;" th:text="${car.getManufacturer() +' '+car.getModel()}"></h1>
+                    <h1 class="field" style="font-family: Montserrat, sans-serif;" th:text="${car.getYear()}"></h1>
+                    <h1 class="field" style="font-family: Montserrat, sans-serif;" th:text="${car.getTransmision().toString().charAt(0)}+${car.getTransmision().toString().toLowerCase().substring(1)}"></h1>
+                    <h1 class="field" style="font-family: Montserrat, sans-serif;" th:text="${car.getEngineType().toString().charAt(0)}+${car.getEngineType().toString().toLowerCase().substring(1)}">Petrol</h1>
+                    <h1 class="field" style="font-family: Montserrat, sans-serif;" th:text="${car.getMillage()}"> km</h1>
+                </div>
+                <div class="col-7 saleBlock col-md-6 col-sm-12">
+                    <img class="saleImg" th:src="${car.getPhotos()[0].getUrl()}" width="90%" height="90%" loading="eager">
+                </div>
+                <div class="col col-sm-12"><button class="btn btn-primary" type="button" style="background-color: rgb(210,210,210);color: rgba(0,0,0,0.9);width: 90px;font-size: 17px;">Edit</button>
+                    <!-- Start: AXY Modal Demo Button -->
+                    <div>
+                        <!-- Start: Modal Button --><a class="btn btn-danger btn-lg" role="button" data-toggle="modal" href="#myModal">Delete</a>
+                        <!-- End: Modal Button -->
+                        <div class="modal fade" role="dialog" tabindex="-1" id="myModal">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 style="font-family: Montserrat, sans-serif;"  th:text="'Are you sure you want to delete your '+${car.getManufacturer()} +' '+ ${car.getModel()}+' ?'"></h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                    <div class="modal-footer"><button class="btn btn-light" data-dismiss="modal" type="button" style="font-family: Montserrat, sans-serif;">Close</button>
+                                        <form th:action="@{/cars/delete/{id}(id = ${car.getId()})}" method="post">
+                                            <button class="btn btn-danger" type="submit" style="font-family: Montserrat, sans-serif;">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End: AXY Modal Demo Button -->
+                    <div class="addedInfo">
+                        <p style="font-size: 21px;">Added on: 22.05.2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:unless="${iStat.first}" class="paddingCard">
         <div class="container mycars">
             <div class="row car-card">
                 <div class="col-5 offset-0 carBlock col-md-6 col-sm-12">
@@ -44,41 +88,10 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="paddingCard">
-        <div class="container mycars">
-            <div class="row car-card">
-                <div class="col-5 offset-0 carBlock col-md-6 col-sm-12">
-                    <h1 class="field" style="font-family: Montserrat, sans-serif;;">Mclaren P1 S</h1>
-                    <h1 class="field" style="font-family: Montserrat, sans-serif;">2020&nbsp;</h1>
-                    <h1 class="field" style="font-family: Montserrat, sans-serif;">Automatic</h1>
-                    <h1 class="field" style="font-family: Montserrat, sans-serif;">Petrol</h1>
-                    <h1 class="field" style="font-family: Montserrat, sans-serif;">210 km</h1>
-                </div>
-                <div class="col-7 saleBlock col-md-6 col-sm-12"><img class="saleImg" src="/assets/img/2.jpg?h=ba30d53a3c747e67a55f4e85a4033ae3" width="90%" height="90%" loading="eager"></div>
-                <div class="col col-sm-12"><button class="btn btn-primary" type="button" style="background-color: rgb(210,210,210);color: rgba(0,0,0,0.9);width: 90px;font-size: 17px;">Edit</button>
-                    <!-- Start: AXY Modal Demo Button -->
-                    <div>
-                        <!-- Start: Modal Button --><a class="btn btn-danger btn-lg" role="button" data-toggle="modal" href="#myModal">Delete</a>
-                        <!-- End: Modal Button -->
-                        <div class="modal fade" role="dialog" tabindex="-1" id="myModal">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 style="font-family: Montserrat, sans-serif;">Are you sure you want to delete you Mclaren P1 S?</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
-                                    <div class="modal-footer"><button class="btn btn-light" data-dismiss="modal" type="button" style="font-family: Montserrat, sans-serif;">Close</button><button class="btn btn-danger" type="button" style="font-family: Montserrat, sans-serif;">Delete</button></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End: AXY Modal Demo Button -->
-                    <div class="addedInfo">
-                        <p style="font-size: 21px;">Added on: 22.05.2020</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div >
+    </th:block>
+
+
 
     <th:block th:include="~{_shared/script}"/>
 </body>

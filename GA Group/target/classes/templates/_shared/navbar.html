@@ -1,13 +1,13 @@
 
 <th:block th:fragment>
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
-        <div class="container"><a class="navbar-brand" href="#">GA Group</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: rgba(0,0,0,0.1);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon border-dark" style="background-image: url(&quot;/assets/img/clipart365828.png?h=a8445024ce4e233afa187c544b04530f&quot;);"></span></button>
+        <div class="container"><a class="navbar-brand" href="/">GA Group</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: rgba(0,0,0,0.1);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon border-dark" style="background-image: url(&quot;/assets/img/clipart365828.png?h=a8445024ce4e233afa187c544b04530f&quot;);"></span></button>
             <div
                     class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="/cars/search">Find your car</a></li>
                     <li class="nav-item" role="presentation" sec:authorize="isAuthenticated()"><a class="nav-link active" href="/cars/create">Post new car</a></li>
-                    <li class="nav-item" role="presentation" sec:authorize="isAuthenticated()"><a class="nav-link active" href="/cars/myCars">My cars</a></li>
+                    <li class="nav-item" role="presentation" sec:authorize="isAuthenticated()"><a class="nav-link active" href="/cars/my-cars">My cars</a></li>
                     <li class="nav-item" role="presentation" ><a class="nav-link active" href="/contact">Contact</a></li>
                     <li class="nav-item" role="presentation" sec:authorize="isAuthenticated()"><a class="nav-link active" href="/logout">Logout</a></li>
                     <li class="nav-item" role="presentation"></li>

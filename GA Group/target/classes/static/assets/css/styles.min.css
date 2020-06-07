@@ -1614,7 +1614,7 @@ div.social-links {
     width: 100%;
     height: 100%;
     overflow: visible;
-    background: url(/assets/img//loading.gif?h=a4117b0e9d822177425e82bdc178df9a) center center no-repeat #f2f2f2
+    background: url(./assets/img/loading.gif) center center no-repeat #f2f2f2
 }
 
 .card {

@@ -10,11 +10,14 @@ import GA.demo.service.model.UserServiceModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class CarServiceImpl implements CarService {
 
     private final CarRepository carRepository;
@@ -62,5 +65,23 @@ public class CarServiceImpl implements CarService {
     public CarServiceModel getById(String id) {
 
         return this.modelMapper.map(this.carRepository.getOne(id),CarServiceModel.class);
+    }
+
+    @Override
+    public List<CarServiceModel> getByUserUsername(String username) {
+
+
+        User user = this.userRepository.getUserByUsername(username);
+
+        List<Car> cars = this.carRepository.getAllByUser(user);
+
+        return cars.stream().map(car -> this.modelMapper.map(car,CarServiceModel.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteCarById(String id) {
+
+        this.carRepository.deleteCarById(id);
+
     }
 }
