@@ -8,6 +8,9 @@
 </head>
 
 <body style="font-family: Montserrat, sans-serif;">
+
+<div id="preloader"></div>
+
 <!-- Start: Navigation with Button -->
 <th:block th:include="~{_shared/navbar}"/>
 <!-- End: Navigation with Button -->
@@ -501,69 +504,161 @@
     <div class="row">
         <div class="col-12 col-md-4 col-sm-12 col-xs-12">
             <h1 style="font-size: 25px;font-family: Montserrat, sans-serif;">Security</h1>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">GPS System</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Active Stability Control</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Adaptive Lights</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">ABS</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Airbags - Front</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Airbags - Rear</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Airbags - Center</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Electronic brakeforce distribution&nbsp;</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Electronic stability control</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Dynamic stability system</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Traction control system</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Dry brake system</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Distronic</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Hill Decent Control</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Brake Asist</label></div>
+
+
+
+            <div class="form-check">
+                <input name="features" value="Active Stability Control" class="form-check-input" type="checkbox">
+                <label class="form-check-label" for="formCheck-1">Active Stability Control</label>
+            </div>
+
+            <div class="form-check">
+                <input name="features" value="Adaptive Lights" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Adaptive Lights</label>
+            </div>
+            <div class="form-check">
+                <input name="features" value="ABS" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">ABS</label>
+            </div>
+            <div class="form-check">
+                <input name="features" value="Airbags - Front" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Airbags - Front</label>
+            </div>
+
+            <div class="form-check">
+                <input name="features" value="Airbags - Rear" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Airbags - Rear</label>
+            </div>
+
+
+            <div class="form-check">
+                <input name="features" value="Airbags - Center" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Airbags - Center</label>
+            </div>
+
+            <div class="form-check">
+                <input name="features" value="Electronic brakeforce distribution" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Electronic brakeforce distribution</label>
+            </div>
+
+            <div class="form-check">
+                <input name="features" value="Dynamic stability system" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Dynamic stability system</label>
+            </div>
+
+            <div class="form-check">
+                <input name="features" value="Traction control system" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Traction control system</label>
+            </div>
+
+            <div class="form-check">
+                <input name="features" value="Dry brake system" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Dry brake system</label>
+            </div>
+
+
+            <div class="form-check">
+                <input name="features" value="Distronic" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Distronic</label>
+            </div>
+
+
+            <div class="form-check">
+                <input name="features" value="Hill Decent Control" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Hill Decent Control</label>
+            </div>
+
+
+            <div class="form-check">
+                <input name="features" value="Brake Asist" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Brake Asist</label>
+            </div>
+
         </div>
         <div class="col-12 col-md-4 col-sm-12 col-xs-12">
             <h1 style="font-size: 25px;font-family: Montserrat, sans-serif;">Comfort</h1>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Auto Start Stop function</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Bluetooth \ handsfree</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">DVD, TV</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Steptronic, Tiptronic<br></label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">USB, audio\video, IN\AUX&nbsp;</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Keyless</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Locked differential</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Board computer</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">A/C</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Electric Power Steering</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Cruise Control</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Active charcoal filter</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Front window heating</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Seat heating</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
-                    class="form-check-label" for="formCheck-1">Rain sensor</label></div>
+
+            <div class="form-check">
+                <input name="comforts" value="Auto Start Stop function" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Auto Start Stop function</label>
+            </div>
+            <div class="form-check">
+                <input name="comforts" value="Bluetooth \ handsfree" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Bluetooth \ handsfree</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="DVD, TV" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">DVD, TV</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="Steptronic, Tiptronic" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Steptronic, Tiptronic</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="USB, audio\video, IN\AUX" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">USB, audio\video, IN\AUX</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="Keyless" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Keyless</label>
+            </div>
+
+
+            <div class="form-check">
+                <input name="comforts" value="Locked differential" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Locked differential</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="Board computer" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Board computer</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="A/C" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">A/C</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="Electric Power Steering" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Electric Power Steering</label>
+            </div>
+
+
+            <div class="form-check">
+                <input name="comforts" value="Cruise Control" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Cruise Control</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="Cruise Control" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Cruise Control</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="Active charcoal filter" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Active charcoal filter</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="Front window heating" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Front window heating</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="Seat heating" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Seat heating</label>
+            </div>
+
+            <div class="form-check">
+                <input name="comforts" value="Rain sensor" class="form-check-input" type="checkbox" id="formCheck-1">
+                <label class="form-check-label" for="formCheck-1">Rain sensor</label>
+            </div>
+
         </div>
         <div class="col-12 col-md-4 col-sm-12 col-xs-12">
             <h1 style="font-size: 25px;font-family: Montserrat, sans-serif;">Description</h1><textarea

@@ -42,7 +42,6 @@ public class Car extends BaseEntity{
     @Column(nullable = false)
     private String region;
 
-
     private String description;
 
     @Column()
@@ -50,6 +49,9 @@ public class Car extends BaseEntity{
 
     private List<Photo> photos;
 
+    private List<Feature> features;
+
+    private List<Comfort> comforts;
 
     private User user;
 
@@ -174,5 +176,23 @@ public class Car extends BaseEntity{
 
     public void setPhotos(List<Photo> photos) {
         this.photos = photos;
+    }
+
+    @OneToMany(mappedBy = "car",cascade = CascadeType.ALL)
+    public List<Feature> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(List<Feature> features) {
+        this.features = features;
+    }
+
+    @OneToMany(mappedBy = "car",cascade = CascadeType.ALL)
+    public List<Comfort> getComforts() {
+        return comforts;
+    }
+
+    public void setComforts(List<Comfort> comforts) {
+        this.comforts = comforts;
     }
 }

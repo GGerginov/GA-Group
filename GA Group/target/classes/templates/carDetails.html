@@ -168,21 +168,21 @@
         </div>
     </div>
 </div>
-<div class="container" style="padding-top: 10px;">
-    <h1 style="font-size: 30px;font-family: Montserrat, sans-serif;">Features</h1>
+<div class="container" style="padding-top: 100px;">
+    <h1 style="font-size: 30px;font-family: Montserrat, sans-serif;"></h1>
+    <h1 style="font-size: 30px;font-family: Montserrat, sans-serif;">Security</h1>
+
     <div class="row">
+
         <div class="col-12 col-md-6 col-sm-12 col-xs-12">
             <ul class="extras">
-                <li><i class="fa fa-check"></i>&nbsp;ABS</li>
-                <li><i class="fa fa-check"></i>&nbsp;DVD, TV</li>
-                <li><i class="fa fa-check"></i>&nbsp;ASR</li>
-                <li><i class="fa fa-check"></i>&nbsp;Keyless</li>
-                <li><i class="fa fa-check"></i>&nbsp;DCT</li>
-                <li><i class="fa fa-check"></i>&nbsp;ACC</li>
-                <li><i class="fa fa-check"></i>&nbsp;Airmatic</li>
-                <li><i class="fa fa-check"></i>&nbsp;Cruise Control</li>
+
+                <th:block th:each="feature : ${car.getFeatures()}">
+                    <li style="padding-top: 10px"><i class="fa fa-check" th:text="${feature.getName()}"></i></li>
+                </th:block>
             </ul>
         </div>
+
         <div class="col col-sm-12 col-xs-12 col-md-6">
             <!-- Start: geolocation -->
             <div class="mapouter">
@@ -206,6 +206,19 @@
                 }</style>
             </div>
             <!-- End: geolocation -->
+        </div>
+    </div>
+
+    <h1 style="font-size: 30px;font-family: Montserrat, sans-serif;">Comfort</h1>
+
+    <div class="row">
+        <div class="col-12 col-md-6 col-sm-12 col-xs-12">
+            <ul class="extras">
+
+                <th:block th:each="comfort : ${car.getComforts()}">
+                    <li style="padding-top: 10px"><i class="fa fa-check" th:text="${comfort.getName()}"></i></li>
+                </th:block>
+            </ul>
         </div>
     </div>
 </div>

@@ -219,8 +219,9 @@ span + strong {
 }
 
 .fa.fa-check {
-    font-size: 25px;
+    font-size: 22px;
     color: rgba(255, 0, 0, .7)
+
 }
 
 .extrasRow {
@@ -382,9 +383,9 @@ span + strong {
 
 .extras {
     list-style-type: none;
-    -webkit-columns: 3;
-    -moz-columns: 3;
-    columns: 3;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
     list-style-position: inside
 }
 
@@ -1614,7 +1615,7 @@ div.social-links {
     width: 100%;
     height: 100%;
     overflow: visible;
-    background: url(./assets/img/loading.gif) center center no-repeat #f2f2f2
+    background: url(/loading.gif) center center no-repeat #f2f2f2
 }
 
 .card {

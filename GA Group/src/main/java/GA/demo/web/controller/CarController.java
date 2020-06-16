@@ -1,17 +1,18 @@
 package GA.demo.web.controller;
 
+import GA.demo.domain.Feature;
 import GA.demo.domain.enums.EngineType;
 import GA.demo.domain.enums.Transmision;
 import GA.demo.service.CarService;
 import GA.demo.service.CloudinaryService;
 import GA.demo.service.model.CarServiceModel;
+import GA.demo.service.model.ComfortServiceModel;
+import GA.demo.service.model.FeatureServiceModel;
 import GA.demo.service.model.PhotoServiceModel;
-import GA.demo.service.model.UserServiceModel;
-import GA.demo.validate.CarBindingModelValidator;
+import GA.demo.validate.impl.CarBindingModelValidator;
 import GA.demo.web.controller.base.BaseController;
 import GA.demo.web.model.CarCreateBindingModel;
 import GA.demo.web.model.SearchCarBindingModel;
-import org.dom4j.rule.Mode;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -38,6 +39,7 @@ public class CarController extends BaseController {
     private final CarService carService;
 
     private final CarBindingModelValidator carBindingModelValidator;
+    private CarServiceModel carServiceModel;
 
     @Autowired
     public CarController(ModelMapper modelMapper, CloudinaryService cloudinaryService, CarService carService, CarBindingModelValidator carBindingModelValidator) {
@@ -84,8 +86,34 @@ public class CarController extends BaseController {
     public ModelAndView postCreate(@ModelAttribute CarCreateBindingModel model, Principal principal) throws IOException {
 
 
-
         CarServiceModel carServiceModel = this.modelMapper.map(model, CarServiceModel.class);
+
+
+        List<FeatureServiceModel> features = new ArrayList<>();
+
+        for (String feature : model.getFeatures()) {
+            FeatureServiceModel featureServiceModel = new FeatureServiceModel();
+            featureServiceModel.setCarServiceModel(carServiceModel);
+            featureServiceModel.setName(feature);
+
+            features.add(featureServiceModel);
+        }
+
+        carServiceModel.setFeatures(features);
+
+        List<ComfortServiceModel> comforts = new ArrayList<>();
+
+        for (String comfort : model.getComforts()) {
+
+
+            ComfortServiceModel comfortServiceModel = new ComfortServiceModel();
+            comfortServiceModel.setCarServiceModel(carServiceModel);
+            comfortServiceModel.setName(comfort);
+
+            comforts.add(comfortServiceModel);
+        }
+
+        carServiceModel.setComforts(comforts);
 
 
         carServiceModel.setEngineType(EngineType.valueOf(model.getEngineType().toUpperCase()));
@@ -104,6 +132,7 @@ public class CarController extends BaseController {
             photoServiceModel.setUrl(this.cloudinaryService.uploadImage(multipartFile));
             carServiceModel.addPhoto(photoServiceModel);
         }
+
 
         this.carService.createCar(carServiceModel,principal.getName());
 

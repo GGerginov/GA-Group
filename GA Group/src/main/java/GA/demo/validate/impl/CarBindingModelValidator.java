@@ -1,10 +1,11 @@
-package GA.demo.validate;
+package GA.demo.validate.impl;
 
+import GA.demo.validate.CarValidator;
 import GA.demo.web.model.CarCreateBindingModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CarBindingModelValidator implements CarValidator{
+public class CarBindingModelValidator implements CarValidator {
 
     public CarBindingModelValidator() {
     }

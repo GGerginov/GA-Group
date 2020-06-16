@@ -2,6 +2,7 @@ package GA.demo.service.model;
 
 import GA.demo.domain.enums.EngineType;
 import GA.demo.domain.enums.Transmision;
+import GA.demo.service.ComfortService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,10 @@ public class CarServiceModel {
     private String euroStandard;
 
     private String description;
+
+    private List<FeatureServiceModel> features;
+
+    private List<ComfortServiceModel> comforts;
 
     private List<PhotoServiceModel> photos;
 
@@ -184,5 +189,23 @@ public class CarServiceModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+    public List<FeatureServiceModel> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(List<FeatureServiceModel> features) {
+        this.features = features;
+    }
+
+
+    public List<ComfortServiceModel> getComforts() {
+        return comforts;
+    }
+
+    public void setComforts(List<ComfortServiceModel> comforts) {
+        this.comforts = comforts;
     }
 }

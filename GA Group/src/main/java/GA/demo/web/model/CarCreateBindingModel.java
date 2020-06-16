@@ -2,6 +2,8 @@ package GA.demo.web.model;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 public class CarCreateBindingModel {
 
     private String manufacturer;
@@ -28,7 +30,14 @@ public class CarCreateBindingModel {
 
     private String description;
 
+    private List<String> features;
+
+    private List<String> comforts;
+
     private MultipartFile[] image;
+
+
+
 
     public CarCreateBindingModel() {
     }
@@ -129,6 +138,22 @@ public class CarCreateBindingModel {
         this.description = description;
     }
 
+    public List<String> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(List<String> features) {
+        this.features = features;
+    }
+
+    public List<String> getComforts() {
+        return comforts;
+    }
+
+    public void setComforts(List<String> comforts) {
+        this.comforts = comforts;
+    }
+
     public MultipartFile[] getImage() {
         return image;
     }
@@ -137,6 +162,7 @@ public class CarCreateBindingModel {
     public void setImage(MultipartFile[] image) {
         this.image = image;
     }
+
 
 
 }
